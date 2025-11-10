@@ -17,6 +17,3 @@ assignees: ''
 
 ## 🌱 기타 요구사항
 - 기능 관련 나누고 싶은 내용 작성(선택)
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
