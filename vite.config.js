@@ -8,7 +8,7 @@ export default defineConfig({
         index: "index.html",
 
         // 에러 페이지
-        error: "src/pages/error.html",
+        // error: "src/pages/error.html",
       },
     },
   },
