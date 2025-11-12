@@ -1,16 +1,15 @@
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  plugins: [tailwindcss()],
   build: {
     rollupOptions: {
       input: {
         // 메인 페이지
-        index: "index.html",
-
-        // 에러 페이지
-        // error: "src/pages/error.html",
+        index: 'index.html',
       },
     },
   },
-  appType: "mpa", // fallback 사용안함
+  appType: 'mpa', // fallback 사용안함
 });
