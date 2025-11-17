@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  font-family: Noto Sans KR;
+
+  /* button {
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    padding: 5px 10px;
+    a {
+      color: aqua;
+    }
+  } */
+
+  #containers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 84px;
+  }
+
+  .container1 {
+    margin: 12px 24px;
+    width: 312px;
+    height: 646.23px;
+
+    h1 {
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 48px;
+      margin: 12px 0px;
+    }
+
+    > p {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+    }
+  }
+
+  .container2 {
+    margin: 12px 24px;
+    width: 312px;
+    height: 496px;
+
+    h1 {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 36px;
+      margin: 24px 0px;
+    }
+    .title {
+      margin-top: 0px;
+    }
+  }
+
+  .container3 {
+    width: 312+12px;
+    height: 640px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    /* padding-right: 24px; */
+    margin: 12px 0px 12px 24px;
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: end;
+      gap: 79px;
+
+      h1 {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 36px;
+        margin-top: 0px;
+      }
+      > p {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px; /* 175% */
+        padding-right: 24px;
+      }
+    }
+
+    .items {
+      height: 640px;
+      display: flex;
+      flex-direction: row;
+      overflow-y: scroll;
+      overflow-x: auto; /* 스크롤 가능하게 설정 */
+      -ms-overflow-style: none; /* IE 및 Edge */
+      scrollbar-width: none; /* Firefox */
+      gap: 8px;
+
+      p {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px;
+        margin-top: 16px;
+      }
+      h2 {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 35px;
+        margin-top: 16px;
+      }
+      button {
+        margin-top: 16px;
+      }
+    }
+    .items::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+  }
+}
