@@ -5,12 +5,12 @@ class Search extends HTMLElement {
 
   render() {
     this.innerHTML = `
-    <div class="wrap bg-white mx-auto w-[360px]">
+    <div class="wrap bg-white mx-auto w-[360px] flex justify-center">
       <!-- 검색창(상품 목록 조회 api) -->
       <div
-        class="search flex items-center justify-center w-[312px] h-10 p-1.5 rounded-[30px] bg-[#f5f5f5]"
+        class="search flex items-center w-[312px] h-10 p-1.5 rounded-[30px] bg-[#f5f5f5]"
       >
-        <label for="searchKeyword" class="w-6 aspect-square">
+        <label for="searchKeyword" class="flex items-center justify-center w-6 aspect-square">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="17"
@@ -32,7 +32,7 @@ class Search extends HTMLElement {
           id="searchKeyword"
           placeholder="검색"
           name="keyword"
-          class="w-70 placeholder-gray-400 outline-none border-none"
+          class="w-70 ml-[7px] outline-none border-none font-medium leading-7 placeholder-[#9e9ea0]" 
         />
       </div>
     </div>
