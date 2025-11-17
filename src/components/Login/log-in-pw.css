@@ -1,0 +1,96 @@
+body {
+  width: 360px;
+  height: 720px;
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid gray;
+}
+.loginPw {
+  padding: 20px 36px;
+
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: Pretendard;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    margin: 0px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 26px;
+  }
+
+  input {
+    width: 272px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border-color: lightgray;
+    font-size: 16px;
+
+    display: flex;
+    padding-left: 12px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+    background: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.94411 4.08411C9.29488 4.03035 9.64925 4.0036 10.0041 4.00411C13.1841 4.00411 16.1741 6.29411 17.9141 10.0041C17.648 10.5687 17.3474 11.1164 17.0141 11.6441C16.9083 11.8079 16.8527 11.9991 16.8541 12.1941C16.8587 12.6426 17.1613 13.0332 17.5945 13.1496C18.0276 13.2661 18.4853 13.0799 18.7141 12.6941C19.18 11.962 19.5847 11.1928 19.9241 10.3941C20.0325 10.1419 20.0325 9.85629 19.9241 9.60411C17.9041 4.91411 14.1041 2.00402 10.0041 2.00402C9.53478 2.00175 9.0662 2.04191 8.60411 2.12411C8.24685 2.18485 7.94912 2.43157 7.82309 2.77134C7.69705 3.11111 7.76186 3.49231 7.99309 3.77134C8.22432 4.05037 8.58685 4.18485 8.94411 4.12411V4.08411ZM1.71411 0.294115C1.46046 0.0404559 1.09074 -0.058609 0.744236 0.0342365C0.397732 0.127082 0.127082 0.397732 0.0342365 0.744236C-0.058609 1.09074 0.0404559 1.46046 0.294115 1.71411L3.39411 4.80411C1.97969 6.16564 0.853971 7.7981 0.0841146 9.60411C-0.0271986 9.85917 -0.0271986 10.1491 0.0841146 10.4041C2.10411 15.0941 5.90411 18.0041 10.0041 18.0041C11.8012 17.9917 13.5559 17.4566 15.0541 16.4641L18.2941 19.7141C18.4819 19.9034 18.7375 20.0099 19.0041 20.0099C19.2708 20.0099 19.5263 19.9034 19.7141 19.7141C19.9034 19.5263 20.0099 19.2708 20.0099 19.0041C20.0099 18.7375 19.9034 18.4819 19.7141 18.2941L1.71411 0.294115ZM8.07411 9.48411L10.5241 11.9341C10.3551 11.9826 10.1799 12.0062 10.0041 12.0041C8.89954 12.0041 8.00411 11.1087 8.00411 10.0041C8.00207 9.8283 8.02565 9.65313 8.07411 9.48411ZM10.0041 16.0041C6.82411 16.0041 3.83411 13.7141 2.10411 10.0041C2.7502 8.57786 3.66719 7.29069 4.80411 6.21411L6.57411 8.00411C5.72013 9.56273 5.99695 11.4979 7.25364 12.7546C8.51034 14.0113 10.4455 14.2881 12.0041 13.4341L13.5941 15.0041C12.5052 15.645 11.2675 15.9897 10.0041 16.0041Z' fill='%23111111'/%3E%3C/svg%3E%0A")
+      no-repeat 250px center;
+    background-size: 20px;
+  }
+
+  .findPw {
+    color: #757575;
+
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+
+    margin-bottom: 90px;
+    text-decoration: underline;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      text-align: center;
+      font-family: 'Noto Sans KR';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 28px;
+
+      border-radius: 30px;
+      padding: 12px 30px;
+    }
+    .blackBtn {
+      background-color: black;
+      border-color: black;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+    .whiteBtn {
+      background-color: white;
+      border-color: lightgray;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
