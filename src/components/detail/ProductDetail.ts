@@ -1,12 +1,12 @@
-<!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../style.css" />
-  </head>
-  <body>
-    <div class="w-[312px] mx-6">
+class ProductDetail extends HTMLElement {
+  connectedCallback() {
+    this.render();
+  }
+
+  render() {
+    this.innerHTML = `
+    <section class="w-[312px] mx-6">
+    <h2 class="sr-only">상품 설명</h2>
       <p class="mb-7">
         경기 종료 휘슬이 울릴 때까지는 끝난 것이 아닙니다. 테이텀 2와 함께
         여유로운 에너지로 경기를 즐겨보세요. 무거운 고무 소재의 사용을 제한하여
@@ -21,6 +21,9 @@
       <a href="/" class="underline decoration-2 underline-offset-8"
         >상품 상세 정보 보기</a
       >
-    </div>
-  </body>
-</html>
+    </section>
+  `;
+  }
+}
+
+customElements.define('product-detail', ProductDetail);
