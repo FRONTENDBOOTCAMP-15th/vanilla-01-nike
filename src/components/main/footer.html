@@ -1,14 +1,14 @@
-class HeaderComponent extends HTMLElement {
-  // 웹 컴포넌트가 DOM에 연결될 때 호출되는 메소드
-  // 컴포넌트 렌더링과 이벤트 초기화를 수행
-  connectedCallback() {
-    this.render();
-  }
-
-  // UI를 렌더링
-  render() {
-    this.innerHTML = `
-    <footer class="m-0 py-12 px-6 w-[360px] flex flex-col bg-white">
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nike-footer</title>
+    <!-- <link rel="stylesheet" href="/src/components/main/footer.css" /> -->
+  </head>
+  <body>
+    <footer class="m-0 py-12 px-6 w-[360px] flex flex-col">
       <div id="container" class="m-0 flex flex-col">
         <li
           id="notice"
@@ -148,9 +148,6 @@ class HeaderComponent extends HTMLElement {
         </p>
       </div>
     </footer>
-    `;
-  }
-}
-
-// HeaderComponent를 <lion-header> 태그로 정의
-customElements.define('fsc-footer', HeaderComponent);
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

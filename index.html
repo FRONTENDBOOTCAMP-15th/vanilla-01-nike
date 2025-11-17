@@ -5,9 +5,31 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vite-project</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script>
+      function ViewLayer() {
+        //만일 Pop라는 녀석이 닫혀있다면??
+        if (document.getElementById('Pop').style.display == 'none') {
+          //열어주어라
+          document.getElementById('Pop').style.display = 'inline'; //그렇지 않은 모든 경우라면??
+        } else {
+          //닫아주어라
+          document.getElementById('Pop').style.display = 'none';
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="app"></div>
+    <div>
+      <fsc-modal></fsc-modal>
+      <fsc-header></fsc-header>
+    </div>
+    <fsc-main></fsc-main>
+    <fsc-footer></fsc-footer>
     <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/components/Header.ts"></script>
+    <script type="module" src="/src/components/Modal.ts"></script>
+    <script type="module" src="/src/components/Footer.ts"></script>
   </body>
 </html>
