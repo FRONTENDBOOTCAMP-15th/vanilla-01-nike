@@ -1,12 +1,15 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>신제품 | 스토어</title>
-    <script type="module" src="../components/itemlist/itemList.ts"></script>
     <script type="module" src="../components/Header.ts"></script>
     <script type="module" src="../components/Modal.ts"></script>
+    <script type="module" src="../components/cart/CartSearch.ts"></script>
+    <script type="module" src="../components/cart/CartTotal.ts"></script>
+    <script type="module" src="../components/cart/OrderDetail.ts"></script>
+    <script type="module" src="../components/cart/WishList.ts"></script>
+    <script type="module" src="../components/cart/Recommendation.ts"></script>
     <script>
       function ViewLayer() {
         //만일 Pop라는 녀석이 닫혀있다면??
@@ -20,12 +23,17 @@
       }
     </script>
     <link rel="stylesheet" href="../style.css" />
+    <title>장바구니</title>
   </head>
   <body>
     <div>
       <fsc-modal></fsc-modal>
       <fsc-header></fsc-header>
     </div>
-    <item-list></item-list>
+    <cart-search></cart-search>
+    <cart-carttotal></cart-carttotal>
+    <cart-orderdetail></cart-orderdetail>
+    <cart-wishlist></cart-wishlist>
+    <cart-recommendation></cart-recommendation>
   </body>
 </html>

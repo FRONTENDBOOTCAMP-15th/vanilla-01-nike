@@ -9,7 +9,7 @@ class HeaderComponent extends HTMLElement {
   render() {
     this.innerHTML = `
     <!-- Modal 창 -->
-      <div id="Pop" class="absolute z-<1> hidden">
+      <div id="Pop" class="absolute z-50 hidden">
         <section class="w-[310px] shrink-0 ml-[50px] pb-[162px] bg-white">
           <div class="pl-[42px]">
             <a href="javascript:ViewLayer();" class="flex justify-end p-[18px]">
@@ -45,22 +45,8 @@ class HeaderComponent extends HTMLElement {
               <li class="flex font-normal justify-between items-center py-4">
                 <details class="font-medium text-2xl/normal">
                   <summary class="text-2xl list-none flex items-center gap-2">
-                    <p class="font-semibold">New & Featured</p>
+                    <a href="/src/pages/itemList" class="font-semibold">New & Featured</a>
                   </summary>
-                  <p class="py-[15px] text-[13px] font-normal text-gray-500">
-                    비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실
-                    수 있습니다.
-                  </p>
-                  <ol
-                    class="py-[15px] text-[13px] font-normal text-gray-500 p-0 m-0"
-                  >
-                    1. 가족 또는 지인이 동일한 카드를 등록하여 사용하지 않았는지
-                    확인해보세요.
-                  </ol>
-                  <p class="py-[15px] text-[13px] font-normal text-gray-500">
-                    [고객지원 > 여정 및 요금 > 내 요금 및 수수료 검토 > 미터기
-                    요금을 중복으로 결제하였습니다]
-                  </p>
                 </details>
                 <svg
                   class="mr-5 float-end justify-end items-start h-6 w-6 shrink-0"
@@ -78,25 +64,9 @@ class HeaderComponent extends HTMLElement {
                 </svg>
               </li>
               <li class="flex font-normal justify-between items-center py-4">
-                <details class="font-medium text-2xl/normal">
                   <summary class="text-2xl list-none flex items-center gap-2">
-                    <p class="font-semibold">Men</p>
+                    <a href="/src/pages/itemList" class="font-semibold">Man</a>
                   </summary>
-                  <p class="py-[15px] text-[13px] font-normal text-gray-500">
-                    비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실
-                    수 있습니다.
-                  </p>
-                  <ol
-                    class="py-[15px] text-[13px] font-normal text-gray-500 p-0 m-0"
-                  >
-                    1. 가족 또는 지인이 동일한 카드를 등록하여 사용하지 않았는지
-                    확인해보세요.
-                  </ol>
-                  <p class="py-[15px] text-[13px] font-normal text-gray-500">
-                    [고객지원 > 여정 및 요금 > 내 요금 및 수수료 검토 > 미터기
-                    요금을 중복으로 결제하였습니다]
-                  </p>
-                </details>
                 <svg
                   class="mr-5 float-end justify-end items-start h-6 w-6 shrink-0"
                   width="11"
@@ -113,25 +83,9 @@ class HeaderComponent extends HTMLElement {
                 </svg>
               </li>
               <li class="flex font-normal justify-between items-center py-4">
-                <details class="font-medium text-2xl/normal">
                   <summary class="text-2xl list-none flex items-center gap-2">
-                    <p class="font-semibold">Women</p>
+                    <a href="/src/pages/itemList" class="font-semibold">Women</a>
                   </summary>
-                  <p class="py-[15px] text-[13px] font-normal text-gray-500">
-                    비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실
-                    수 있습니다.
-                  </p>
-                  <ol
-                    class="py-[15px] text-[13px] font-normal text-gray-500 p-0 m-0"
-                  >
-                    1. 가족 또는 지인이 동일한 카드를 등록하여 사용하지 않았는지
-                    확인해보세요.
-                  </ol>
-                  <p class="py-[15px] text-[13px] font-normal text-gray-500">
-                    [고객지원 > 여정 및 요금 > 내 요금 및 수수료 검토 > 미터기
-                    요금을 중복으로 결제하였습니다]
-                  </p>
-                </details>
                 <svg
                   class="mr-5 float-end justify-end items-start h-6 w-6 shrink-0"
                   width="11"
@@ -148,25 +102,9 @@ class HeaderComponent extends HTMLElement {
                 </svg>
               </li>
               <li class="flex font-normal justify-between items-center py-4">
-                <details class="font-medium text-2xl/normal">
                   <summary class="text-2xl list-none flex items-center gap-2">
-                    <p class="font-semibold">Kids</p>
+                    <a href="/src/pages/itemList" class="font-semibold">Kids</a>
                   </summary>
-                  <p class="py-[15px] text-[13px] font-normal text-gray-500">
-                    비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실
-                    수 있습니다.
-                  </p>
-                  <ol
-                    class="py-[15px] text-[13px] font-normal text-gray-500 p-0 m-0"
-                  >
-                    1. 가족 또는 지인이 동일한 카드를 등록하여 사용하지 않았는지
-                    확인해보세요.
-                  </ol>
-                  <p class="py-[15px] text-[13px] font-normal text-gray-500">
-                    [고객지원 > 여정 및 요금 > 내 요금 및 수수료 검토 > 미터기
-                    요금을 중복으로 결제하였습니다]
-                  </p>
-                </details>
                 <svg
                   class="mr-5 float-end justify-end items-start h-6 w-6 shrink-0"
                   width="11"
@@ -183,25 +121,9 @@ class HeaderComponent extends HTMLElement {
                 </svg>
               </li>
               <li class="flex font-normal justify-between items-center py-4">
-                <details class="font-medium text-2xl/normal">
                   <summary class="text-2xl list-none flex items-center gap-2">
-                    <p class="font-semibold">Sale</p>
+                    <a href="/src/pages/itemList" class="font-semibold">Sale</a>
                   </summary>
-                  <p class="py-[15px] text-[13px] font-normal text-gray-500">
-                    비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실
-                    수 있습니다.
-                  </p>
-                  <ol
-                    class="py-[15px] text-[13px] font-normal text-gray-500 p-0 m-0"
-                  >
-                    1. 가족 또는 지인이 동일한 카드를 등록하여 사용하지 않았는지
-                    확인해보세요.
-                  </ol>
-                  <p class="py-[15px] text-[13px] font-normal text-gray-500">
-                    [고객지원 > 여정 및 요금 > 내 요금 및 수수료 검토 > 미터기
-                    요금을 중복으로 결제하였습니다]
-                  </p>
-                </details>
                 <svg
                   class="mr-5 float-end justify-end items-start h-6 w-6 shrink-0"
                   width="11"
