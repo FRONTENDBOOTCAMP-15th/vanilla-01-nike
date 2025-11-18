@@ -13,6 +13,7 @@ class HeaderComponent extends HTMLElement {
         class="pl-[23px] w-[360px] h-[60px] inline-flex shrink-0 flex-row justify-between items-center bg-white"
       >
         <!--로고 아이콘-->
+        <a href="/index.html">
         <svg
           width="59"
           height="21"
@@ -27,7 +28,7 @@ class HeaderComponent extends HTMLElement {
             fill="#111111"
           />
         </svg>
-
+      </a>
         <div class="flex items-center gap-5 pr-6 pl-[90px]">
           <!--검색 아이콘-->
           <svg
