@@ -4,9 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style.css" />
+    <script type="module" src="../components/Header.ts"></script>
+    <script type="module" src="../components/Modal.ts"></script>
     <script type="module" src="../components/detail/ProductHeader.ts"></script>
     <script type="module" src="../components/detail/SizeSelector.ts"></script>
     <script type="module" src="../components/detail/ProductDetail.ts"></script>
+    <script>
+      function ViewLayer() {
+        //만일 Pop라는 녀석이 닫혀있다면??
+        if (document.getElementById('Pop').style.display == 'none') {
+          //열어주어라
+          document.getElementById('Pop').style.display = 'inline'; //그렇지 않은 모든 경우라면??
+        } else {
+          //닫아주어라
+          document.getElementById('Pop').style.display = 'none';
+        }
+      }
+    </script>
     <script
       type="module"
       src="../components/detail/ProductExtraInfo.ts"
@@ -19,6 +33,10 @@
   </head>
   <body>
     <div class="w-[360px] m-auto">
+      <div>
+        <fsc-modal></fsc-modal>
+        <fsc-header></fsc-header>
+      </div>
       <product-header></product-header>
       <size-selector></size-selector>
       <product-button-top></product-button-top>
