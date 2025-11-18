@@ -61,7 +61,7 @@ class HeaderComponent extends HTMLElement {
           <!--장바구니 아이콘-->
           <!--이 svg에 장바구니 내부 갯수와 연동되는 링크있음-->
           <a
-            href="./src/pages/cart"
+            href="/src/pages/cart"
           >
           <svg
             width="24"
