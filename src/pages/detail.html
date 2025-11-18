@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <script type="module" src="../components/detail/ProductHeader.ts"></script>
+    <script type="module" src="../components/detail/SizeSelector.ts"></script>
+    <script type="module" src="../components/detail/ProductDetail.ts"></script>
+    <script
+      type="module"
+      src="../components/detail/ProductExtraInfo.ts"
+    ></script>
+    <script
+      type="module"
+      src="../components/detail/RecommendedProducts.ts"
+    ></script>
+    <script type="module" src="../components/detail/Button.ts"></script>
+  </head>
+  <body>
+    <div class="w-[360px] m-auto">
+      <product-header></product-header>
+      <size-selector></size-selector>
+      <product-button-top></product-button-top>
+      <product-detail></product-detail>
+      <product-extrainfo></product-extrainfo>
+      <recommended-products></recommended-products>
+      <product-button-bottom></product-button-bottom>
+    </div>
+  </body>
+</html>

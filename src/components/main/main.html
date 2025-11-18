@@ -1,39 +1,4 @@
-import './style.css';
-// import typescriptLogo from './typescript.svg';
-// import viteLogo from '/vite.svg';
-// import { setupCounter } from './counter.ts';
-
-// document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-//   <div>
-//     <a href="https://vite.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://www.typescriptlang.org/" target="_blank">
-//       <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-//     </a>
-//     <h1>Vite + TypeScript</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite and TypeScript logos to learn more
-//     </p>
-//   </div>
-// `;
-
-// setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
-
-class HeaderComponent extends HTMLElement {
-  // 웹 컴포넌트가 DOM에 연결될 때 호출되는 메소드
-  // 컴포넌트 렌더링과 이벤트 초기화를 수행
-  connectedCallback() {
-    this.render();
-  }
-
-  // UI를 렌더링
-  render() {
-    this.innerHTML = `
-    <!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -49,8 +14,30 @@ class HeaderComponent extends HTMLElement {
       }
     </style>
     <!-- <link rel="stylesheet" href="/src/components/main/main.css" /> -->
+    <!-- modal 창 기능 스크립트(임시) -->
+    <script>
+      function ViewLayer() {
+        //만일 Pop라는 녀석이 닫혀있다면??
+        if (document.getElementById('Pop').style.display == 'none') {
+          //열어주어라
+          document.getElementById('Pop').style.display = 'inline'; //그렇지 않은 모든 경우라면??
+        } else {
+          //닫아주어라
+          document.getElementById('Pop').style.display = 'none';
+        }
+      }
+    </script>
+    <script type="module" src="/src/components/Header.ts"></script>
+    <script type="module" src="/src/components/Modal.ts"></script>
+    <script type="module" src="/src/components/Footer.ts"></script>
   </head>
   <body class="w-[360px] h-[3000px] m-0 flex flex-col font-sans">
+    <header class="m-0">
+      <div class="m-0 font-sans">
+        <fsc-modal></fsc-modal>
+        <fsc-header></fsc-header>
+      </div>
+    </header>
     <div
       id="containers"
       class="flex flex-col justify-center gap-[84px] bg-white"
@@ -285,12 +272,9 @@ class HeaderComponent extends HTMLElement {
         </article>
       </section>
     </div>
+    <footer>
+      <fsc-footer></fsc-footer>
+    </footer>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
-    `;
-  }
-}
-
-// HeaderComponent를 <lion-header> 태그로 정의
-customElements.define('fsc-main', HeaderComponent);
