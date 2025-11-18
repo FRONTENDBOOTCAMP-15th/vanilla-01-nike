@@ -1,17 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../components/Header.ts"></script>
+    <script type="module" src="../components/Modal.ts"></script>
     <script type="module" src="../components/cart/CartSearch.ts"></script>
     <script type="module" src="../components/cart/CartTotal.ts"></script>
     <script type="module" src="../components/cart/OrderDetail.ts"></script>
     <script type="module" src="../components/cart/WishList.ts"></script>
     <script type="module" src="../components/cart/Recommendation.ts"></script>
+    <script>
+      function ViewLayer() {
+        //만일 Pop라는 녀석이 닫혀있다면??
+        if (document.getElementById('Pop').style.display == 'none') {
+          //열어주어라
+          document.getElementById('Pop').style.display = 'inline'; //그렇지 않은 모든 경우라면??
+        } else {
+          //닫아주어라
+          document.getElementById('Pop').style.display = 'none';
+        }
+      }
+    </script>
     <link rel="stylesheet" href="../style.css" />
     <title>장바구니</title>
   </head>
-  <body">
+  <body>
+    <div>
+      <fsc-modal></fsc-modal>
+      <fsc-header></fsc-header>
+    </div>
     <cart-search></cart-search>
     <cart-carttotal></cart-carttotal>
     <cart-orderdetail></cart-orderdetail>

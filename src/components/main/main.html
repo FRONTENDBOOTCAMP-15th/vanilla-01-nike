@@ -5,7 +5,15 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nike-main</title>
-    <link rel="stylesheet" href="/src/components/main/main.css" />
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      article {
+        scrollbar-width: none;
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="/src/components/main/main.css" /> -->
     <!-- modal 창 기능 스크립트(임시) -->
     <script>
       function ViewLayer() {
@@ -23,16 +31,20 @@
     <script type="module" src="/src/components/Modal.ts"></script>
     <script type="module" src="/src/components/Footer.ts"></script>
   </head>
-  <body class="w-[360px] h-[3000px] m-0 flex flex-col">
+  <body class="w-[360px] h-[3000px] m-0 flex flex-col font-sans">
     <header class="m-0">
       <div class="m-0 font-sans">
         <fsc-modal></fsc-modal>
         <fsc-header></fsc-header>
       </div>
     </header>
-    <div id="containers">
-      <section class="container1">
+    <div
+      id="containers"
+      class="flex flex-col justify-center gap-[84px] bg-white"
+    >
+      <section id="container1" class="my-3 mx-6 w-[316px] h-[646.23px]">
         <svg
+          class=""
           width="312"
           height="426"
           viewBox="0 0 312 426"
@@ -68,17 +80,19 @@
             />
           </defs>
         </svg>
-        <h1 class="pt-3">
+        <h1 class="text-[38px] font-medium py-3 leading-12">
           아무나 오를 수<br />
           없는 승자의 자리.
         </h1>
-        <p>전부를 내건 이들만이 차지하는 것.</p>
+        <p class="text-[16px] font-normal leading-7">
+          전부를 내건 이들만이 차지하는 것.
+        </p>
         <button class="bg-black text-white mt-6 px-4 py-1.5 rounded-4xl">
           자세히 보기
         </button>
       </section>
-      <section class="container2">
-        <h1 class="title">Featured</h1>
+      <section id="container2" class="my-3 mx-6 w-[312px] h-[496px]">
+        <h1 id="title" class="text-2xl font-medium leading-9 mb-6">Featured</h1>
         <svg
           width="312"
           height="312"
@@ -106,17 +120,23 @@
             />
           </defs>
         </svg>
-        <h1>워크아웃 에센셜</h1>
+        <h1 class="text-2xl font-medium leading-9 my-6">워크아웃 에센셜</h1>
         <button class="bg-black rounded-4xl text-white py-1.5 px-4">
           구매하기
         </button>
       </section>
-      <section class="container3">
-        <div class="title">
-          <h1 class="">나이키 멤버십</h1>
-          <p>멤버 가입하기</p>
+      <section
+        id="container3"
+        class="w-[336px] h-[640px] flex flex-col gap-4 my-3 ml-6"
+      >
+        <div class="flex flex-row justify-between items-end /*gap-[79px]*/">
+          <h1 class="text-2xl font-medium leading-9 mt-0">나이키 멤버십</h1>
+          <p class="text-[16px] font-medium leading-7 pr-6">멤버 가입하기</p>
         </div>
-        <article class="items">
+        <article
+          id="items"
+          class="h-[640px] flex flex-row overflow-y-scroll overflow-x-auto overflow-visible gap-2"
+        >
           <article class="item1">
             <svg
               width="300"
@@ -148,9 +168,13 @@
                 />
               </defs>
             </svg>
-            <p>스포츠 & 웰니스 앱</p>
-            <h2>언제 어디서든 운동하기</h2>
-            <button class="bg-black rounded-4xl text-white py-1.5 px-4">
+            <p class="text-[16px] font-medium leading-7 mt-4">
+              스포츠 & 웰니스 앱
+            </p>
+            <h2 class="text-[20px] font-medium leading-[35px] mt-4">
+              언제 어디서든 운동하기
+            </h2>
+            <button class="bg-black rounded-4xl text-white py-1.5 px-4 mt-4">
               함께 운동하기
             </button>
           </article>
@@ -190,9 +214,13 @@
                 />
               </defs>
             </svg>
-            <p>나이키 트레일 러닝</p>
-            <h2>새로운 모험으로 이끌어 주는 아이템</h2>
-            <button class="bg-black rounded-4xl text-white py-1.5 px-4">
+            <p class="text-[16px] font-medium leading-7 mt-4">
+              나이키 트레일 러닝
+            </p>
+            <h2 class="text-[20px] font-medium leading-[35px] mt-4">
+              새로운 모험으로 이끌어 주는 아이템
+            </h2>
+            <button class="bg-black rounded-4xl text-white py-1.5 px-4 mt-4">
               함께 운동하기
             </button>
           </article>
@@ -232,9 +260,12 @@
                 />
               </defs>
             </svg>
-            <p>나이키 축구</p>
-            <h2>경기 중 독보적인 존재감을 드러낼 아이템</h2>
-            <button class="bg-black rounded-4xl text-white py-1.5 px-4">
+            <p class="text-[16px] font-medium leading-7 mt-4">나이키 축구</p>
+            <h2 class="text-[20px] font-medium leading-[35px] mt-4">
+              경기 중 독보적인 존재감을 드러낼<br />
+              아이템
+            </h2>
+            <button class="bg-black rounded-4xl text-white py-1.5 px-4 mt-4">
               함께 운동하기
             </button>
           </article>

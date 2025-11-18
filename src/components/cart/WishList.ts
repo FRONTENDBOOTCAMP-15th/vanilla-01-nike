@@ -19,7 +19,7 @@ class WishList extends HTMLElement {
                 <div>
                   <p class="target text-[#707072]">남성 신발</p>
                   <p class="text-[#707072]">사이즈<span class="ml-2.5 underline">275</span></p>
-                  <button type="button" class="block cursor-pointer h-11 px-6 py-2 mt-3 border border-[#e5e5e5] rounded-[22px] text-[#111]">장바구니에 추가</button>
+                  <button type="button" class="block cursor-pointer h-11 px-5 py-2 mt-3 border border-[#e5e5e5] rounded-[22px] text-[#111]">장바구니에 추가</button>
                 </div>
             </div>
           </div>
@@ -34,7 +34,7 @@ class WishList extends HTMLElement {
                 <div>
                   <p class="target text-[#707072]">남성 신발</p>
                   <p class="text-[#707072]">사이즈<span class="ml-2.5 underline">275</span></p>
-                  <button type="button" class="block cursor-pointer h-11 px-6 py-2 mt-3 border border-[#e5e5e5] rounded-[22px] text-[#111] ">장바구니에 추가</button>
+                  <button type="button" class="block cursor-pointer h-11 px-5 py-2 mt-3 border border-[#e5e5e5] rounded-[22px] text-[#111] ">장바구니에 추가</button>
                 </div>
             </div>
           </div>
