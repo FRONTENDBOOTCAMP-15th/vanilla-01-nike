@@ -13,7 +13,7 @@ class HeaderComponent extends HTMLElement {
         class="pl-[23px] w-[360px] h-[60px] inline-flex shrink-0 flex-row justify-between items-center bg-white"
       >
         <!--로고 아이콘-->
-        <a href="/index.html">
+        <a href="/">
         <svg
           width="59"
           height="21"
@@ -60,6 +60,9 @@ class HeaderComponent extends HTMLElement {
           </svg>
           <!--장바구니 아이콘-->
           <!--이 svg에 장바구니 내부 갯수와 연동되는 링크있음-->
+          <a
+            href="./src/pages/cart"
+          >
           <svg
             width="24"
             height="24"
@@ -76,9 +79,6 @@ class HeaderComponent extends HTMLElement {
               d="M10.1219 11.369C10.3379 11.369 10.5479 11.351 10.7519 11.315C10.9559 11.279 11.1389 11.219 11.3009 11.135C11.4689 11.051 11.6099 10.943 11.7239 10.811C11.8439 10.679 11.9219 10.517 11.9579 10.325H12.7949V16.625H11.6699V12.179H10.1219V11.369Z"
               fill="#111111"
             />
-            <a
-              href="https://www.figma.com/design/ljNayoxlhNbIbkSaRG6bEc?node-id=8-902"
-            >
               <rect
                 fill="black"
                 fill-opacity="0"

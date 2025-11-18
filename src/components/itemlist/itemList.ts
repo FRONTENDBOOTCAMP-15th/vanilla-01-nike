@@ -127,7 +127,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_1.png"
                     alt="테이텀 2 PF"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -166,7 +165,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_2.png"
                     alt="나이키 줌 보메로 5"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -205,7 +203,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_3.png"
                     alt="나이키 줌 보메로 5"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -244,7 +241,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_4.png"
                     alt="나이키 에어맥스 SC 트렌드"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -283,7 +279,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_5.png"
                     alt="나이키 스우시 1"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -322,7 +317,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_6.png"
                     alt="나이키 머큐리얼 베이퍼 16 프로"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -361,7 +355,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_7.png"
                     alt="나이키 티엠포 레전드 10 프로"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -400,7 +393,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_8.png"
                     alt="나이키 팬텀 GX 2 프로"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -439,7 +431,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_9.png"
                     alt="나이키 클럽"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -478,7 +469,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_10.png"
                     alt="나이키 에이펙스"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -516,7 +506,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_10.png"
                     alt="나이키 에이펙스"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -554,7 +543,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_10.png"
                     alt="나이키 에이펙스"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -592,7 +580,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_10.png"
                     alt="나이키 에이펙스"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -630,7 +617,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_10.png"
                     alt="나이키 에이펙스"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -668,7 +654,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_10.png"
                     alt="나이키 에이펙스"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
@@ -706,7 +691,6 @@ class itemList extends HTMLElement {
               <a href="#" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
-                    src="/src/components/itemlistimg/product_image_10.png"
                     alt="나이키 에이펙스"
                     loading="lazy"
                     class="absolute inset-0 w-full h-full object-cover"
