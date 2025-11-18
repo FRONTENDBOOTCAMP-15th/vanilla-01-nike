@@ -124,7 +124,7 @@ class itemList extends HTMLElement {
           <!-- 1 -->
           <li>
             <article class="productItem">
-              <a href="#" class="productLink">
+              <a href="../../src/pages/detail" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
                     alt="테이텀 2 PF"
@@ -162,7 +162,7 @@ class itemList extends HTMLElement {
           <!-- 2 -->
           <li>
             <article class="productItem">
-              <a href="#" class="productLink">
+              <a href="../../src/pages/detail" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
                     alt="나이키 줌 보메로 5"
@@ -200,7 +200,7 @@ class itemList extends HTMLElement {
           <!-- 3 -->
           <li>
             <article class="productItem">
-              <a href="#" class="productLink">
+              <a href="../../src/pages/detail" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
                     alt="나이키 줌 보메로 5"
@@ -238,7 +238,7 @@ class itemList extends HTMLElement {
           <!-- 4 -->
           <li>
             <article class="productItem">
-              <a href="#" class="productLink">
+              <a href="../../src/pages/detail" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
                     alt="나이키 에어맥스 SC 트렌드"
@@ -276,7 +276,7 @@ class itemList extends HTMLElement {
           <!-- 5 -->
           <li>
             <article class="productItem">
-              <a href="#" class="productLink">
+              <a href="../../src/pages/detail" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
                     alt="나이키 스우시 1"
@@ -314,7 +314,7 @@ class itemList extends HTMLElement {
           <!-- 6 -->
           <li>
             <article class="productItem">
-              <a href="#" class="productLink">
+              <a href="../../src/pages/detail" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
                     alt="나이키 머큐리얼 베이퍼 16 프로"
@@ -352,7 +352,7 @@ class itemList extends HTMLElement {
           <!-- 7 -->
           <li>
             <article class="productItem">
-              <a href="#" class="productLink">
+              <a href="../../src/pages/detail" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
                     alt="나이키 티엠포 레전드 10 프로"
@@ -390,7 +390,7 @@ class itemList extends HTMLElement {
           <!-- 8 -->
           <li>
             <article class="productItem">
-              <a href="#" class="productLink">
+              <a href="../../src/pages/detail" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
                     alt="나이키 팬텀 GX 2 프로"
@@ -428,7 +428,7 @@ class itemList extends HTMLElement {
           <!-- 9 -->
           <li>
             <article class="productItem">
-              <a href="#" class="productLink">
+              <a href="../../src/pages/detail" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
                     alt="나이키 클럽"
@@ -466,229 +466,7 @@ class itemList extends HTMLElement {
           <!-- 10 -->
           <li>
             <article class="productItem">
-              <a href="#" class="productLink">
-                <figure class="productMedia pt-[100%] relative">
-                  <img
-                    alt="나이키 에이펙스"
-                    loading="lazy"
-                    class="absolute inset-0 w-full h-full object-cover"
-                  />
-                </figure>
-              </a>
-              <div class="productInfo py-3 px-4">
-                <p
-                  class="productFlag mb-0.5 text-[#b40000] text-[14px] font-semibold"
-                >
-                  신제품
-                </p>
-                <h2 class="productName mb-0.5 text-[14px] font-semibold">
-                  나이키 에이펙스
-                </h2>
-                <p
-                  class="productCategory text-[#707072] text-[14px] font-normal"
-                >
-                  데님 버킷 햇
-                </p>
-                <p class="productColor text-[#707072] text-[14px] font-normal">
-                  1개 색상
-                </p>
-                <p
-                  class="productPrice mt-1 text-base font-medium text-[#111111]"
-                >
-                  45,000 원
-                </p>
-              </div>
-            </article>
-          </li>
-          <!-- 11 -->
-          <li>
-            <article class="productItem">
-              <a href="#" class="productLink">
-                <figure class="productMedia pt-[100%] relative">
-                  <img
-                    alt="나이키 에이펙스"
-                    loading="lazy"
-                    class="absolute inset-0 w-full h-full object-cover"
-                  />
-                </figure>
-              </a>
-              <div class="productInfo py-3 px-4">
-                <p
-                  class="productFlag mb-0.5 text-[#b40000] text-[14px] font-semibold"
-                >
-                  신제품
-                </p>
-                <h2 class="productName mb-0.5 text-[14px] font-semibold">
-                  나이키 에이펙스
-                </h2>
-                <p
-                  class="productCategory text-[#707072] text-[14px] font-normal"
-                >
-                  데님 버킷 햇
-                </p>
-                <p class="productColor text-[#707072] text-[14px] font-normal">
-                  1개 색상
-                </p>
-                <p
-                  class="productPrice mt-1 text-base font-medium text-[#111111]"
-                >
-                  45,000 원
-                </p>
-              </div>
-            </article>
-          </li>
-          <!-- 12 -->
-          <li>
-            <article class="productItem">
-              <a href="#" class="productLink">
-                <figure class="productMedia pt-[100%] relative">
-                  <img
-                    alt="나이키 에이펙스"
-                    loading="lazy"
-                    class="absolute inset-0 w-full h-full object-cover"
-                  />
-                </figure>
-              </a>
-              <div class="productInfo py-3 px-4">
-                <p
-                  class="productFlag mb-0.5 text-[#b40000] text-[14px] font-semibold"
-                >
-                  신제품
-                </p>
-                <h2 class="productName mb-0.5 text-[14px] font-semibold">
-                  나이키 에이펙스
-                </h2>
-                <p
-                  class="productCategory text-[#707072] text-[14px] font-normal"
-                >
-                  데님 버킷 햇
-                </p>
-                <p class="productColor text-[#707072] text-[14px] font-normal">
-                  1개 색상
-                </p>
-                <p
-                  class="productPrice mt-1 text-base font-medium text-[#111111]"
-                >
-                  45,000 원
-                </p>
-              </div>
-            </article>
-          </li>
-          <!-- 13 -->
-          <li>
-            <article class="productItem">
-              <a href="#" class="productLink">
-                <figure class="productMedia pt-[100%] relative">
-                  <img
-                    alt="나이키 에이펙스"
-                    loading="lazy"
-                    class="absolute inset-0 w-full h-full object-cover"
-                  />
-                </figure>
-              </a>
-              <div class="productInfo py-3 px-4">
-                <p
-                  class="productFlag mb-0.5 text-[#b40000] text-[14px] font-semibold"
-                >
-                  신제품
-                </p>
-                <h2 class="productName mb-0.5 text-[14px] font-semibold">
-                  나이키 에이펙스
-                </h2>
-                <p
-                  class="productCategory text-[#707072] text-[14px] font-normal"
-                >
-                  데님 버킷 햇
-                </p>
-                <p class="productColor text-[#707072] text-[14px] font-normal">
-                  1개 색상
-                </p>
-                <p
-                  class="productPrice mt-1 text-base font-medium text-[#111111]"
-                >
-                  45,000 원
-                </p>
-              </div>
-            </article>
-          </li>
-          <!-- 14 -->
-          <li>
-            <article class="productItem">
-              <a href="#" class="productLink">
-                <figure class="productMedia pt-[100%] relative">
-                  <img
-                    alt="나이키 에이펙스"
-                    loading="lazy"
-                    class="absolute inset-0 w-full h-full object-cover"
-                  />
-                </figure>
-              </a>
-              <div class="productInfo py-3 px-4">
-                <p
-                  class="productFlag mb-0.5 text-[#b40000] text-[14px] font-semibold"
-                >
-                  신제품
-                </p>
-                <h2 class="productName mb-0.5 text-[14px] font-semibold">
-                  나이키 에이펙스
-                </h2>
-                <p
-                  class="productCategory text-[#707072] text-[14px] font-normal"
-                >
-                  데님 버킷 햇
-                </p>
-                <p class="productColor text-[#707072] text-[14px] font-normal">
-                  1개 색상
-                </p>
-                <p
-                  class="productPrice mt-1 text-base font-medium text-[#111111]"
-                >
-                  45,000 원
-                </p>
-              </div>
-            </article>
-          </li>
-          <!-- 15 -->
-          <li>
-            <article class="productItem">
-              <a href="#" class="productLink">
-                <figure class="productMedia pt-[100%] relative">
-                  <img
-                    alt="나이키 에이펙스"
-                    loading="lazy"
-                    class="absolute inset-0 w-full h-full object-cover"
-                  />
-                </figure>
-              </a>
-              <div class="productInfo py-3 px-4">
-                <p
-                  class="productFlag mb-0.5 text-[#b40000] text-[14px] font-semibold"
-                >
-                  신제품
-                </p>
-                <h2 class="productName mb-0.5 text-[14px] font-semibold">
-                  나이키 에이펙스
-                </h2>
-                <p
-                  class="productCategory text-[#707072] text-[14px] font-normal"
-                >
-                  데님 버킷 햇
-                </p>
-                <p class="productColor text-[#707072] text-[14px] font-normal">
-                  1개 색상
-                </p>
-                <p
-                  class="productPrice mt-1 text-base font-medium text-[#111111]"
-                >
-                  45,000 원
-                </p>
-              </div>
-            </article>
-          </li>
-          <!-- 16 -->
-          <li>
-            <article class="productItem">
-              <a href="#" class="productLink">
+              <a href="../../src/pages/detail" class="productLink">
                 <figure class="productMedia pt-[100%] relative">
                   <img
                     alt="나이키 에이펙스"
