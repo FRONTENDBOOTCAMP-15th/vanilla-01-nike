@@ -10,7 +10,9 @@ class WishList extends HTMLElement {
         <h2 class="text-2xl font-medium leading-9 text-[#111]">위시 리스트</h2>
         <div class="wishWrap mt-11">
           <div class="wish flex leading-7">
-            <div class="shrink-0 w-[154px] h-[154px] bg-amber-200"></div>
+            <div class="shrink-0 w-[154px] h-[154px]">
+              <image src="/images/imgShoes.jpg" alt="상품 이미지" />
+            </div>
               <div class="productInfo w-full ml-3">
                 <div class="flex col-gap-2font-medium text-[#111]">
                   <p class="name w-16">나이키 줌 보메로 5</p>
@@ -25,7 +27,9 @@ class WishList extends HTMLElement {
           </div>
           <div class="wish flex mt-[62px] leading-7">
             <div class="wish flex leading-7">
-            <div class="shrink-0 w-[154px] h-[154px] bg-amber-200"></div>
+            <div class="shrink-0 w-[154px] h-[154px]">
+              <image src="/images/imgShoes.jpg" alt="상품 이미지" />
+            </div>
               <div class="productInfo w-full ml-3">
                 <div class="flex col-gap-2font-medium text-[#111]">
                   <p class="name w-16">나이키 줌 보메로 5</p>
