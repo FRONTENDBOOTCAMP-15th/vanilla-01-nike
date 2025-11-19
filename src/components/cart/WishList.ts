@@ -1,3 +1,5 @@
+import Img from '../../../public/images/imgShoes.jpg';
+
 class WishList extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -11,7 +13,7 @@ class WishList extends HTMLElement {
         <div class="wishWrap mt-11">
           <div class="wish flex leading-7">
             <div class="shrink-0 w-[154px] h-[154px]">
-              <image src="/images/imgShoes.jpg" alt="상품 이미지" />
+              <img src="${Img}" alt="상품 이미지" />
             </div>
               <div class="productInfo w-full ml-3">
                 <div class="flex col-gap-2font-medium text-[#111]">
@@ -28,7 +30,7 @@ class WishList extends HTMLElement {
           <div class="wish flex mt-[62px] leading-7">
             <div class="wish flex leading-7">
             <div class="shrink-0 w-[154px] h-[154px]">
-              <image src="/images/imgShoes.jpg" alt="상품 이미지" />
+              <img src="${Img}" alt="상품 이미지" />
             </div>
               <div class="productInfo w-full ml-3">
                 <div class="flex col-gap-2font-medium text-[#111]">
