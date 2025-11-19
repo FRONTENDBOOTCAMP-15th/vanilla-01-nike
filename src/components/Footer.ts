@@ -16,7 +16,7 @@ class HeaderComponent extends HTMLElement {
         >
           <details class="font-medium text-[14px]">
             <summary class="list-none flex items-center gap-2">
-              <p>안내</p>
+              <p class=" hover:bg-gray-950/10">안내</p>
             </summary>
             <p class="py-[15px] text-[13px] font-normal text-gray-500">
               비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실 수
@@ -52,7 +52,7 @@ class HeaderComponent extends HTMLElement {
         >
           <details class="font-medium text-[14px]">
             <summary class="list-none flex items-center gap-2">
-              <p>고객센터</p>
+              <p class=" hover:bg-gray-950/10">고객센터</p>
             </summary>
             <p class="py-[15px] text-[13px] font-normal text-gray-500">
               비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실 수
@@ -88,7 +88,7 @@ class HeaderComponent extends HTMLElement {
         >
           <details class="font-medium text-[14px]">
             <summary class="list-none flex items-center gap-2">
-              <p>회사소개</p>
+              <p class=" hover:bg-gray-950/10">회사소개</p>
             </summary>
             <p class="py-[15px] text-[13px] font-normal text-gray-500">
               비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실 수
