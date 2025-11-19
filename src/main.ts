@@ -1,4 +1,10 @@
 import './style.css';
+import ImgM1 from '../src/assets/img/NIKE-main-1.png';
+import ImgM2 from '../src/assets/img/NIKE-main-2.png';
+import ImgM3_1 from '../src/assets/img/NIKE-main-3-1.png';
+import ImgM3_2 from '../src/assets/img/NIKE-main-3-2.png';
+import ImgM3_3 from '../src/assets/img/NIKE-main-3-3.png';
+
 class HeaderComponent extends HTMLElement {
   // 웹 컴포넌트가 DOM에 연결될 때 호출되는 메소드
   // 컴포넌트 렌더링과 이벤트 초기화를 수행
@@ -32,7 +38,7 @@ class HeaderComponent extends HTMLElement {
       class="flex flex-col justify-center gap-[84px] bg-white"
     >
       <section id="container1" class="pt-10 mx-6 w-[316px] h-[646.23px]">
-      <img src="/src/assets/img/NIKE-main-1.png" class="w-[312px] h-[426px] object-cover"> 
+      <img src="${ImgM1}" class="w-[312px] h-[426px] object-cover"/>
         <h1 class="text-2xl font-medium leading-9 my-6">워크아웃 에센셜</h1>
         <button class="bg-black rounded-4xl text-white py-1.5 px-4">
         <a href="/src/pages/itemList">
@@ -42,7 +48,7 @@ class HeaderComponent extends HTMLElement {
       </section>
       <section id="container2" class="my-3 mx-6 w-[312px] h-[496px]">
         <h1 id="title" class="text-2xl font-medium leading-9 mb-6">Featured</h1>
-        <img src="/src/assets/img/NIKE-main-2.png" class="w-[312px] h-[312spx] object-cover">
+        <img src="${ImgM2}" class="w-[312px] h-[312px] object-cover"/>
         <h1 class="text-2xl font-medium leading-9 my-6">워크아웃 에센셜</h1>
         <button class="bg-black rounded-4xl text-white py-1.5 px-4">
           <a href="/src/pages/itemList">
@@ -67,7 +73,7 @@ class HeaderComponent extends HTMLElement {
         >
           <article class="item1">
           <div class="w-[300px] h-[375px]">
-          <img src="/src/assets/img/NIKE-main-3-1.png" class="w-[300px] h-[375px] object-cover">
+          <img src="${ImgM3_1}" class="w-[312px] h-[375px] object-cover"/>
           </div>
             <p class="text-[16px] font-medium leading-7 mt-4">
               스포츠 & 웰니스 앱
@@ -83,7 +89,7 @@ class HeaderComponent extends HTMLElement {
           </article>
           <article class="item2">
             <div class="w-[300px] h-[375px]">
-          <img src="/src/assets/img/NIKE-main-3-2.png" class="w-[300px] h-[375px] object-cover">
+            <img src="${ImgM3_2}" class="w-[312px] h-[375px] object-cover"/>
           </div>
             <p class="text-[16px] font-medium leading-7 mt-4">
               나이키 트레일 러닝
@@ -99,7 +105,7 @@ class HeaderComponent extends HTMLElement {
           </article>
           <article class="item3">
             <div class="w-[300px] h-[375px]">
-          <img src="/src/assets/img/NIKE-main-3-3.png" class="w-[300px] h-[375px] object-cover">
+            <img src="${ImgM3_3}" class="w-[312px] h-[375px] object-cover"/>
           </div>
             <p class="text-[16px] font-medium leading-7 mt-4">나이키 축구</p>
             <h2 class="text-[20px] font-medium leading-[35px] mt-4">
