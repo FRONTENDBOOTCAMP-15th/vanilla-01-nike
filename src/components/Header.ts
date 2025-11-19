@@ -14,24 +14,25 @@ class HeaderComponent extends HTMLElement {
       >
         <!--로고 아이콘-->
         <a href="/">
-        <svg
-          width="59"
-          height="21"
-          viewBox="0 0 59 21"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M58.854 0L15.8132 18.2574C12.2297 19.7777 9.21516 20.5363 6.78586 20.5363C4.05249 20.5363 2.06131 19.5717 0.83849 17.6459C-0.747258 15.1611 -0.0541062 11.1656 2.66619 6.94786C4.28136 4.4826 6.33466 2.22005 8.33564 0.0555836C7.86482 0.820666 3.70918 7.73584 8.25391 10.9923C9.15304 11.6463 10.4314 11.9667 12.0041 11.9667C13.2662 11.9667 14.7146 11.7607 16.3069 11.3455L58.854 0Z"
-            fill="#111111"
-          />
-        </svg>
-      </a>
+          <svg
+            width="59"
+            height="21"
+            viewBox="0 0 59 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M58.854 0L15.8132 18.2574C12.2297 19.7777 9.21516 20.5363 6.78586 20.5363C4.05249 20.5363 2.06131 19.5717 0.83849 17.6459C-0.747258 15.1611 -0.0541062 11.1656 2.66619 6.94786C4.28136 4.4826 6.33466 2.22005 8.33564 0.0555836C7.86482 0.820666 3.70918 7.73584 8.25391 10.9923C9.15304 11.6463 10.4314 11.9667 12.0041 11.9667C13.2662 11.9667 14.7146 11.7607 16.3069 11.3455L58.854 0Z"
+              fill="#111111"
+            />
+          </svg>
+        </a>
         <div class="flex items-center gap-5 pr-6 pl-[90px]">
           <!--검색 아이콘-->
           <svg
+           class="w-[18px] h-[18px]"
             width="18"
             height="18"
             viewBox="0 0 18 18"
@@ -43,14 +44,16 @@ class HeaderComponent extends HTMLElement {
               stroke="#111111"
               stroke-width="1.5"
             />
-          </svg>
+            </svg>
           <!--로그인 아이콘-->
+          <a href="/src/components/Login/log-in.html">
           <svg
+           class=" hover:bg-gray-950/10"
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="http://www.w3.org/2000/svg"s
           >
             <path
               d="M3.75 21V18C3.75 17.0054 4.14509 16.0516 4.84835 15.3483C5.55161 14.6451 6.50544 14.25 7.5 14.25H16.5C17.4946 14.25 18.4484 14.6451 19.1517 15.3483C19.8549 16.0516 20.25 17.0054 20.25 18V21M12 3.75C11.0054 3.75 10.0516 4.14509 9.34835 4.84835C8.64509 5.55161 8.25 6.50544 8.25 7.5C8.25 8.49456 8.64509 9.44839 9.34835 10.1517C10.0516 10.8549 11.0054 11.25 12 11.25C12.9946 11.25 13.9484 10.8549 14.6517 10.1517C15.3549 9.44839 15.75 8.49456 15.75 7.5C15.75 6.50544 15.3549 5.55161 14.6517 4.84835C13.9484 4.14509 12.9946 3.75 12 3.75Z"
@@ -58,12 +61,14 @@ class HeaderComponent extends HTMLElement {
               stroke-width="1.5"
             />
           </svg>
+          </a>
           <!--장바구니 아이콘-->
           <!--이 svg에 장바구니 내부 갯수와 연동되는 링크있음-->
           <a
             href="/src/pages/cart"
           >
           <svg
+           class=" hover:bg-gray-950/10"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -90,20 +95,21 @@ class HeaderComponent extends HTMLElement {
             </a>
           </svg>
           <!--더보기 메뉴 아이콘-->
-          <a href="javascript:ViewLayer();">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M21 5.25H3M21 12H3M21 18.75H3"
-                stroke="#111111"
-                stroke-width="1.5"
-              />
-            </svg>
+          <button command="show-modal" commandfor="drawer" class=" hover:bg-gray-950/10">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21 5.25H3M21 12H3M21 18.75H3"
+              stroke="#111111"
+              stroke-width="1.5"
+            />
+          </svg>
+          </button>
           </a>
         </div>
       </headers>
