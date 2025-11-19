@@ -29,15 +29,8 @@ class SizeSelector extends HTMLElement {
         <p class="">사이즈 선택</p>
         <p class="text-gray-600">사이즈 가이드</p>
       </div>
-      <div class="flex flex-wrap justify-center gap-1.75 mt-2.25">
-        <button
-          type="button"
-          aria-labelledby="sizeButton"
-          class="py-2.5 px-3.5 border cursor-pointer rounded-sm"
-          id="p-size"
-        >
-          250
-        </button>
+      <div class="flex flex-wrap justify-start gap-1.75 mt-2.25 m-0.5" id="p-size">
+        // 사이즈 정보 표시
       </div>
     </div>
   `;
@@ -49,8 +42,18 @@ class SizeSelector extends HTMLElement {
     const p = this.product.item;
 
     // 사이즈 정보
-    const sizes = p.extra?.size ?? [];
-    this.querySelector('#p-size')!.textContent = sizes.join(', ');
+    const sizes = this.querySelector('#p-size')!;
+    sizes.innerHTML = '';
+
+    p.extra?.size?.forEach(size => {
+      const el = document.createElement('button');
+      el.type = 'button';
+      el.ariaLabel = 'sizeButton';
+      el.className =
+        'w-14 h-12 border border-[#E5E5E5] cursor-pointer rounded-sm';
+      el.textContent = size;
+      sizes.appendChild(el);
+    });
   }
 }
 
