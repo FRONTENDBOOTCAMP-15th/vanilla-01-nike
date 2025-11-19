@@ -62,16 +62,16 @@ class RecommendedProducts extends HTMLElement {
         class="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden whitespace-nowrap px-6 pb-3"
       >
         <li class="flex flex-col gap-3 shrink-0 text-sm pb-10">
-          <img class="w-[196px] h-[196px] bg-gray-50 rounded-sm" />
+          <img src="https://res.cloudinary.com/ddedslqvv/image/upload/v1762845701/febc15-vanilla01-ecad/mt6hzBKsn.jpg" alt="남성 신발" class="w-[196px] h-[196px] bg-gray-50 rounded-sm" />
           <p>나이키 줌 보메로 5</p>
           <p class="text-[#707072]">남성 신발</p>
           <p>189,000 원</p>
         </li>
 
         <li class="flex flex-col gap-3 shrink-0 text-sm pb-10">
-          <img class="w-[196px] h-[196px] bg-gray-50 rounded-sm" />
+          <img src="https://res.cloudinary.com/ddedslqvv/image/upload/v1762845701/febc15-vanilla01-ecad/cG5q5OOeGyb.jpg" alt="남성 신발" class="w-[196px] h-[196px] bg-gray-50 rounded-sm" />
           <p>나이키 클럽</p>
-          <p class="text-[#707072]">언스트럭처 데님 캡</p>
+          <p class="text-[#707072]">남성 신발</p>
           <p>39,000 원</p>
         </li>
       </ul>
