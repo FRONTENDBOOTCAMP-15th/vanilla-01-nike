@@ -6,28 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vite-project</title>
     <link rel="stylesheet" href="/src/style.css" />
-    <!-- <script>
+    <script>
       function ViewLayer() {
-        //만일 Pop라는 녀석이 닫혀있다면??
-        if (document.getElementById('Pop').style.display == 'none') {
+        //만일 Serch라는 녀석이 닫혀있다면??
+        if (document.getElementById('Serch').style.display == 'none') {
           //열어주어라
-          document.getElementById('Pop').style.display = 'inline'; //그렇지 않은 모든 경우라면??
+          document.getElementById('Serch').style.display = 'inline'; //그렇지 않은 모든 경우라면??
         } else {
           //닫아주어라
-          document.getElementById('Pop').style.display = 'none';
+          document.getElementById('Serch').style.display = 'none';
         }
       }
-    </script> -->
+    </script>
   </head>
   <body>
     <div id="app"></div>
     <div>
       <fsc-modal></fsc-modal>
       <fsc-header></fsc-header>
+      <cart-search
+        id="Serch"
+        class="hidden"
+        style="display: none"
+      ></cart-search>
     </div>
     <fsc-main></fsc-main>
     <fsc-footer></fsc-footer>
     <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/components/cart/CartSearch.ts"></script>
     <script type="module" src="/src/components/Header.ts"></script>
     <script type="module" src="/src/components/Modal.ts"></script>
     <script type="module" src="/src/components/Footer.ts"></script>
