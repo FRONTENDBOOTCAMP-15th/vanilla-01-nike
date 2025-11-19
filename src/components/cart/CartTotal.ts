@@ -1,3 +1,7 @@
+import Img from '../../../public/images/imgShoes.jpg';
+import Ico1 from '../../../public/icons/icoHeart.svg';
+import Ico2 from '../../../public/icons/icoTrash.svg';
+
 class Cart extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -19,7 +23,7 @@ class Cart extends HTMLElement {
         <div class="cartList mx-auto w-[328px] pt-10 pb-10 border-t border-t-[#e5e5e5]">
           <div class="cartDetail flex">
             <div class="shrink-0 w-[154px] h-[154px] bg-amber-200">
-              <image src="/images/imgShoes.jpg" alt="상품 이미지" />
+              <img src="${Img}" alt="상품 이미지" />
             </div>
             <div class="productInfo w-full ml-3 leading-7">
               <p class="price font-medium">189,000원</p>
@@ -41,10 +45,10 @@ class Cart extends HTMLElement {
               </table>
               <div class="cartButtons flex mt-7.5 ">
                 <span class="w-6 h-6">
-                  <image src="/icons/icoHeart.svg" alt="찜하기 아이콘" />
+                  <img src="${Ico1}" alt="찜하기 아이콘" />
                 </span>
                 <button class="deleteButton w-6 h-6 ml-4">
-                  <image src="/icons/icoTrash.svg" alt="삭제 아이콘" />
+                  <img src="${Ico2}" alt="삭제 아이콘" />
                 </button>
               </div>
             </div>
