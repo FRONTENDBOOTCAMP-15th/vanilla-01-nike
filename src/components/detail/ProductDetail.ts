@@ -1,28 +1,57 @@
+import type { Products } from '../../types/Products';
+import { fetchProductDetailByUrl } from '../../utils/productService';
+
 class ProductDetail extends HTMLElement {
-  connectedCallback() {
-    this.render();
+  product: Products | null = null;
+
+  async connectedCallback() {
+    // 쿼리 스트링에서 실제 제품 ID 가져오기
+    try {
+      const data = await fetchProductDetailByUrl();
+      if (!data) {
+        console.error('제품 ID가 없거나 데이터를 불러올 수 없습니다.');
+        return;
+      }
+
+      this.product = data;
+      this.render();
+      this.applyData();
+    } catch (e) {
+      console.error('상품 정보를 불러오지 못했습니다:', e);
+    }
   }
 
   render() {
     this.innerHTML = `
     <section class="w-[312px] mx-6">
     <h2 class="sr-only">상품 설명</h2>
-      <p class="mb-7">
-        경기 종료 휘슬이 울릴 때까지는 끝난 것이 아닙니다. 테이텀 2와 함께
-        여유로운 에너지로 경기를 즐겨보세요. 무거운 고무 소재의 사용을 제한하여
-        더욱 가벼운 착화감을 선사합니다. 전체적으로 적용된 나이키 에어 스트로벨
-        유닛은 빠르게 방향을 바꿀 수 있도록 도와주며, 견고한 프레임과 발에
-        밀착되는 지지력 있는 폼이 어우러져 고정력 좋은 착화감을 선사합니다.
-      </p>
+      <p class="mb-7" id="p-content">상품 설명</p>
       <ul class="list-disc list-outside pl-3 ml-4 flex flex-col gap-1 mb-8.5">
-        <li>현재 컬러: 라이트 지트론/오로라 그린/ 아토믹 핑크/세일</li>
-        <li>스타일 번호: FJ6458-700</li>
+        <li id="p-color"></li>
+        <li id="p-styleNo"></li>
       </ul>
       <a href="/" class="underline decoration-2 underline-offset-8"
         >상품 상세 정보 보기</a
       >
     </section>
   `;
+  }
+  applyData() {
+    if (!this.product) return;
+
+    const p = this.product.item;
+
+    // 상품 설명 정보
+    this.querySelector('#p-content')!.textContent =
+      p.content ?? '상품 설명이 없습니다.';
+
+    // 컬러 정보
+    const color = p.extra?.color ?? [];
+    this.querySelector('#p-color')!.textContent = '현재 컬러: ' + color;
+
+    // 스타일 번호
+    const styleNo = p.extra?.styleNo ?? [];
+    this.querySelector('#p-styleNo')!.textContent = '스타일 번호: ' + styleNo;
   }
 }
 
