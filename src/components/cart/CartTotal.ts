@@ -18,7 +18,9 @@ class Cart extends HTMLElement {
         <!-- 장바구니에 상품이 있는 경우 / div에 이미지 나중에 추가하기-->
         <div class="cartList mx-auto w-[328px] pt-10 pb-10 border-t border-t-[#e5e5e5]">
           <div class="cartDetail flex">
-            <div class="shrink-0 w-[154px] h-[154px] bg-amber-200"></div>
+            <div class="shrink-0 w-[154px] h-[154px] bg-amber-200">
+              <image src="/images/imgShoes.jpg" alt="상품 이미지" />
+            </div>
             <div class="productInfo w-full ml-3 leading-7">
               <p class="price font-medium">189,000원</p>
               <p class="name font-medium">나이티 줌 보메로 5</p>
@@ -37,9 +39,13 @@ class Cart extends HTMLElement {
                   </td>
                 </tr>
               </table>
-              <div class="cartButtons flex mt-7.5">
-                <span class="w-6 h-6 bg-amber-200"></span>
-                <button class="deleteButton w-6 h-6 ml-4 bg-amber-200"></button>
+              <div class="cartButtons flex mt-7.5 ">
+                <span class="w-6 h-6">
+                  <image src="/icons/icoHeart.svg" alt="찜하기 아이콘" />
+                </span>
+                <button class="deleteButton w-6 h-6 ml-4">
+                  <image src="/icons/icoTrash.svg" alt="삭제 아이콘" />
+                </button>
               </div>
             </div>
           </div>
