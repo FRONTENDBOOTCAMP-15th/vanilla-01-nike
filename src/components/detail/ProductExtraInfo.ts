@@ -118,7 +118,7 @@ class ProductExtraInfo extends HTMLElement {
             class="transition-transform duration-200"
           >
             <path
-              d="M5.0338 15.5239L11.9998 8.55693L18.9668 15.5239"
+              d="M18.9662 8.47607L12.0002 15.4431L5.0332 8.47607"
               stroke="#111111"
               stroke-width="1.5"
             />

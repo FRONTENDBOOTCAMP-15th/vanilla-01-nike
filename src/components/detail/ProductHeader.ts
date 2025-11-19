@@ -30,7 +30,7 @@ class ProductHeader extends HTMLElement {
           <p class="mt-3 mb-6" id="p-price">가격 정보</p>
         </section>
 
-        <img id="main-img" src="" class="w-[360px] h-[450px] bg-gray-50 mb-1" />
+        <img id="main-img" class="w-[360px] h-[450px] bg-gray-50 mb-1" />
 
         <section class="flex gap-2.5 overflow-x-auto [&::-webkit-scrollbar]:hidden" id="thumb-wrap">
           // 상품 상세 이미지 정보 삽입
