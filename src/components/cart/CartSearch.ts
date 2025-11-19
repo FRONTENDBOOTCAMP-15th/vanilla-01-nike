@@ -1,3 +1,12 @@
+import { cartSearch } from '../../../api/cart.api.ts';
+
+export function CartTotal() {
+  // 연동만 테스트
+  cartSearch().then(result => {
+    console.log('총액:', result);
+  });
+}
+
 class Search extends HTMLElement {
   connectedCallback() {
     this.render();
