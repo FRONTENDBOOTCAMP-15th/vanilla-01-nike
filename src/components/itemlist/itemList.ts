@@ -1,6 +1,6 @@
 import { fetchProducts, filterByCategory, sortProducts } from './itemListData';
 import type { Product, SortOption } from './itemListData';
-import { createProductCard } from './itemListProducts';
+import { createProductCard } from './itemListProduct';
 import { initFilterModal } from './itemListFilter';
 import {
   createScrollState,
