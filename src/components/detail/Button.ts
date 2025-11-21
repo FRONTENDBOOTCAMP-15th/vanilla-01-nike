@@ -1,5 +1,74 @@
-class ProductButtonTop extends HTMLElement {
+import axios from 'axios';
+import { getAxios } from '../../utils/Axois';
+
+class ProductButtonBase extends HTMLElement {
+  private selectedSize: string | null = null; // 현재 선택된 사이즈 값
+  private productId: number | null = null; // 현재 제품 ID
+
+  // 외부에서 ID를 전달할 수 있는 메서드
+  setProductId(id: number) {
+    this.productId = id;
+  }
+
+  protected bindEvents(buttonSelector = 'button') {
+    // SizeSelector에서 선택된 사이즈 이벤트 수신
+    window.addEventListener('size:selected', (e: Event) => {
+      const customEvent = e as CustomEvent;
+      this.selectedSize = customEvent.detail.size;
+    });
+
+    const button = this.querySelector<HTMLButtonElement>(buttonSelector);
+    if (!button) return;
+
+    // 장바구니 버튼 클릭 이벤트
+    button.addEventListener('click', async () => {
+      // 사이즈 미선택 시 예외 처리
+      if (!this.selectedSize) {
+        alert('사이즈를 선택해주세요!');
+        return;
+      }
+      // 제품 ID가 없는 경우 예외 처리
+      if (!this.productId) {
+        alert('제품 정보가 없습니다.');
+        return;
+      }
+
+      // 장바구니 추가 API 호출
+      try {
+        const axiosInstance = getAxios();
+        await axiosInstance.post('/carts/', {
+          product_id: this.productId,
+          quantity: 1,
+          size: this.selectedSize,
+          color: '',
+        });
+
+        alert('장바구니에 추가되었습니다!');
+        this.selectedSize = null; // 선택 초기화
+      } catch (error) {
+        console.error(error);
+        if (axios.isAxiosError(error)) {
+          // 로그인을 하지 않은 경우
+          if (axios.isAxiosError(error) && error.response?.status === 401) {
+            alert('로그인이 필요한 기능입니다.\n로그인 후 이용해주세요.');
+            return;
+          }
+        }
+
+        alert('장바구니 추가 중 오류가 발생했습니다.');
+      }
+    });
+  }
+  protected render(): void {}
+}
+
+export class ProductButtonTop extends ProductButtonBase {
   connectedCallback() {
+    this.render();
+    this.bindEvents('button:first-of-type');
+  }
+
+  protected render() {
     this.innerHTML = `
       <div class="flex flex-col gap-3 mx-6 mb-8">
       <!-- 상단 장바구니 버튼 -->
@@ -35,8 +104,13 @@ class ProductButtonTop extends HTMLElement {
   }
 }
 
-class ProductButtonBottom extends HTMLElement {
+export class ProductButtonBottom extends ProductButtonBase {
   connectedCallback() {
+    this.render();
+    this.bindEvents();
+  }
+
+  protected render() {
     this.innerHTML = `
       <button type="button" class="bg-black text-white cursor-pointer py-5 px-37">
         장바구니
