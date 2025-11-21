@@ -1,0 +1,60 @@
+class LoginComponent extends HTMLElement {
+  connectedCallback() {
+    this.render();
+  }
+
+  /**
+   * 헤더 UI 렌더링
+   * 사용자 로그인 상태에 따라 로그인/회원가입 버튼 또는 사용자 정보와 로그아웃 버튼 표시
+   */
+  private render() {
+    // index.html의 <header> 태그를 복사해서 수정
+    this.innerHTML = `
+      <main class="w-[360px] h-[720px] m-0 p-0">
+        <div id="loginEmail" class="py-5 px-9">
+          <a href="/">
+            <svg
+              class="mb-5"
+              width="76"
+              height="60"
+              viewBox="0 0 76 60"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M67.854 20L24.8132 38.2574C21.2297 39.7777 18.2152 40.5363 15.7859 40.5363C13.0525 40.5363 11.0613 39.5717 9.83849 37.6459C8.25274 35.1611 8.94589 31.1656 11.6662 26.9479C13.2814 24.4826 15.3347 22.22 17.3356 20.0556C16.8648 20.8207 12.7092 27.7358 17.2539 30.9923C18.153 31.6463 19.4314 31.9667 21.0041 31.9667C22.2662 31.9667 23.7146 31.7607 25.3069 31.3455L67.854 20Z"
+                fill="#111111"
+              />
+            </svg>
+          </a>
+          <h1 class="text-[28px] font-normal leadinsg-8 m-0 mb-7">
+            가입 또는 로그인을 위해 이메일을 입력하세요.
+          </h1>
+          <input
+            type="email"
+            placeholder="이메일"
+            name="email"
+            class="w-[288px] h-14 shrink-0 rounded-xl border border-gray-500 hover:bg-gray-100 text-[16px] flex pl-3 mb-[46px]"
+          />
+          <p class="text-gray-500 text-[16px] font-normal leading-6 mb-10">
+            계속 진행하면 나이키의
+            <span class="underline"><a href="">개인정보 처리방침</a></span> 및
+            <span class="underline"><a href="">이용약관</a></span
+            >에 동의하게 됩니다.
+          </p>
+          <button
+            class="text-[16px] font-medium leading-7 bg-black hover:bg-gray-700 text-white rounded-4xl py-3"
+          >
+            <a href="/src/components/Login/log-in-pw.html" class="py-4 px-[30px]"
+              >계속</a
+            >
+          </button>
+        </div>
+      </main>
+    `;
+  }
+}
+// HeaderComponent를 '<fsc-login>' 태그명으로 등록
+customElements.define('fsc-login', LoginComponent);
