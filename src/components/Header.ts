@@ -1,15 +1,26 @@
+import type { User } from '../types/user.ts';
+
+/**
+ * 헤더 웹 컴포넌트
+ * 사이트 상단 네비게이션 바 렌더링 및 사용자 인증 상태에 따른 UI 변경
+ */
 class HeaderComponent extends HTMLElement {
   // 웹 컴포넌트가 DOM에 연결될 때 호출되는 메소드
   // 컴포넌트 렌더링과 이벤트 초기화를 수행
   connectedCallback() {
     this.render();
+    this.initEvent();
   }
 
-  // UI를 렌더링
-  render() {
+  /**
+   * 헤더 UI 렌더링
+   * 사용자 로그인 상태에 따라 로그인/회원가입 버튼 또는 사용자 정보와 로그아웃 버튼 표시
+   */
+  private render() {
+    const user = this.getUserData();
     this.innerHTML = `
       <!-- 헤더 창 -->
-      <headers
+      <header
         class="pl-[23px] w-[360px] h-[60px] inline-flex shrink-0 flex-row justify-between items-center bg-white"
       >
         <!--로고 아이콘-->
@@ -29,11 +40,10 @@ class HeaderComponent extends HTMLElement {
             />
           </svg>
         </a>
-        <div class="flex items-center gap-5 pr-6 pl-[90px]">
+        <div class="flex items-center pr-6 pl-[90px]">
           <!--검색 아이콘-->
-          <a href="javascript:ViewLayer();" class="flex justify-end">
+          <a href="javascript:ViewLayer();" class="flex justify-end  hover:bg-gray-950/10 p-2.5 rounded-3xl">
             <svg
-            class="w-[18px] h-[18px] hover:bg-gray-950/10"
               width="18"
               height="18"
               viewBox="0 0 18 18"
@@ -48,29 +58,34 @@ class HeaderComponent extends HTMLElement {
               </svg>
             </a>
           <!--로그인 아이콘-->
-          <a href="/src/components/Login/log-in.html">
-          <svg
-           class=" hover:bg-gray-950/10"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"s
-          >
-            <path
-              d="M3.75 21V18C3.75 17.0054 4.14509 16.0516 4.84835 15.3483C5.55161 14.6451 6.50544 14.25 7.5 14.25H16.5C17.4946 14.25 18.4484 14.6451 19.1517 15.3483C19.8549 16.0516 20.25 17.0054 20.25 18V21M12 3.75C11.0054 3.75 10.0516 4.14509 9.34835 4.84835C8.64509 5.55161 8.25 6.50544 8.25 7.5C8.25 8.49456 8.64509 9.44839 9.34835 10.1517C10.0516 10.8549 11.0054 11.25 12 11.25C12.9946 11.25 13.9484 10.8549 14.6517 10.1517C15.3549 9.44839 15.75 8.49456 15.75 7.5C15.75 6.50544 15.3549 5.55161 14.6517 4.84835C13.9484 4.14509 12.9946 3.75 12 3.75Z"
-              stroke="#111111"
-              stroke-width="1.5"
-            />
-          </svg>
-          </a>
+          <div class=" hover:bg-gray-950/10 p-2 rounded-3xl">
+            <a href="/src/components/Login/log-in.html">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"s
+            >
+              <path
+                d="M3.75 21V18C3.75 17.0054 4.14509 16.0516 4.84835 15.3483C5.55161 14.6451 6.50544 14.25 7.5 14.25H16.5C17.4946 14.25 18.4484 14.6451 19.1517 15.3483C19.8549 16.0516 20.25 17.0054 20.25 18V21M12 3.75C11.0054 3.75 10.0516 4.14509 9.34835 4.84835C8.64509 5.55161 8.25 6.50544 8.25 7.5C8.25 8.49456 8.64509 9.44839 9.34835 10.1517C10.0516 10.8549 11.0054 11.25 12 11.25C12.9946 11.25 13.9484 10.8549 14.6517 10.1517C15.3549 9.44839 15.75 8.49456 15.75 7.5C15.75 6.50544 15.3549 5.55161 14.6517 4.84835C13.9484 4.14509 12.9946 3.75 12 3.75Z"
+                stroke="#111111"
+                stroke-width="1.5"
+              />
+                ${
+                  user.email
+                    ? `<a href="/mypage.html">마이페이지</a>`
+                    : `<a href="/src/components/Login/log-in.html">로그인</a>`
+                }
+            </svg>
+            </a>
+          </div>
           <!--장바구니 아이콘-->
           <!--이 svg에 장바구니 내부 갯수와 연동되는 링크있음-->
           <a
-            href="/src/pages/cart"
+            href="/src/pages/cart" class=" hover:bg-gray-950/10 p-2 rounded-3xl"
           >
           <svg
-           class=" hover:bg-gray-950/10"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -97,7 +112,7 @@ class HeaderComponent extends HTMLElement {
             </a>
           </svg>
           <!--더보기 메뉴 아이콘-->
-          <button command="show-modal" commandfor="drawer" class=" hover:bg-gray-950/10">
+          <button command="show-modal" commandfor="drawer" class=" hover:bg-gray-950/10 p-2 rounded-3xl cursor-pointer">
           <svg
             width="24"
             height="24"
@@ -116,6 +131,15 @@ class HeaderComponent extends HTMLElement {
         </div>
       </headers>
     `;
+  }
+  private getUserData(): User {
+    return JSON.parse(localStorage.getItem('user') || '{}');
+  }
+
+  private initEvent() {
+    this.querySelector('#menu-btn')?.addEventListener('click', () => {
+      this.querySelector('#menu-modal')?.classList.toggle('hidden');
+    });
   }
 }
 

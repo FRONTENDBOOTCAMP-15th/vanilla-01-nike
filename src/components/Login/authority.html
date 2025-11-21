@@ -40,60 +40,140 @@
         나이키에 오신 것을 환영합니다! 법률 약관이 업데이트되었습니다.
         진행하시기 전에 내용을 검토하고 동의해 주세요.
       </p>
-      <div class="flex gap-3 items-center mb-6">
-        <input
-          type="checkbox"
-          class="w-6 h-6 shrink-0 rounded-2xl border-gray-400 text-[16px] flex pl-4"
-        />
-        <span class="w-[210px] text-[16px] font-bold leading-6 mt-0.5"
-          >모든 약관에 동의합니다</span
-        >
-      </div>
-      <div class="flex gap-3 items-center mb-6">
-        <input
-          type="checkbox"
-          class="w-6 h-6 shrink-0 rounded-2xl border-gray-400 text-[16px] flex pl-4"
-        />
-        <span class="w-[210px] text-[16px] font-bold leading-6 mt-0.5">
-          <span class="underline">이용약관</span>에 동의합니다 *
-        </span>
-      </div>
-      <div class="flex gap-3 items-center mb-6">
-        <input
-          type="checkbox"
-          class="w-6 h-6 shrink-0 rounded-2xl border-gray-400 text-[16px] flex pl-4"
-        />
-        <span class="w-[210px] text-[16px] font-bold leading-6 mt-0.5">
-          <span class="underline">개인 정보 수집 및 이용</span>에 동의합니다 *
-        </span>
-      </div>
-      <div class="flex gap-3 items-center mb-6">
-        <input
-          type="checkbox"
-          class="w-6 h-6 shrink-0 rounded-2xl border-gray-400 text-[16px] flex pl-4"
-        />
-        <span class="w-[210px] text-[16px] font-bold leading-6 mt-0.5">
-          <span class="underline">개인 정보의 제3자 제공 및 국외 이전</span>에
-          동의합니다 *
-        </span>
-      </div>
+      <label class="flex mb-5 pb-5 border-b-gray-400 border-b">
+        <div class="flex gap-3 items-center">
+          <input
+            type="checkbox"
+            id="my_checkbox"
+            onclick="is_checked()"
+            class="w-6 h-6 text-[16px] flex"
+          />
+          <span class="w-[210px] text-[16px] font-bold leading-6 mt-0.5"
+            >모든 약관에 동의합니다</span
+          >
+        </div>
+      </label>
+      <label class="flex mb-6">
+        <div class="flex gap-3 items-center">
+          <input
+            type="checkbox"
+            class="cbox w-6 h-6 shrink-0 border-gray-400 text-[16px] flex pl-4"
+            nochecked
+          />
+          <span class="w-[210px] text-[16px] font-bold leading-6 mt-0.5">
+            <span class="underline">이용약관</span>에 동의합니다 *
+          </span>
+        </div>
+      </label>
+      <label class="flex mb-6">
+        <div class="flex gap-3">
+          <input
+            type="checkbox"
+            class="cbox w-6 h-6 shrink-0 border-gray-400 text-[16px] flex pl-4 mt-1"
+          />
+          <span class="w-[210px] text-[16px] font-bold leading-6 mt-0.5">
+            <span class="underline">개인 정보 수집 및 이용</span>에 동의합니다 *
+          </span>
+        </div>
+      </label>
+      <label class="flex mb-6">
+        <div class="flex gap-3">
+          <input
+            type="checkbox"
+            class="cbox w-6 h-6 shrink-0 border-gray-400 text-[16px] flex pl-4 mt-1"
+          />
+          <span class="w-[210px] text-[16px] font-bold leading-6 mt-0.5">
+            <span class="underline">개인 정보의 제3자 제공 및 국외 이전</span>에
+            동의합니다 *
+          </span>
+        </div>
+      </label>
       <p class="text-gray-400 text-[14px] font-normal leading-6 mb-6">
         이 약관에 동의하지 않을 수 있지만, 그럴 경우 나이키 계정에 로그인할 수
         없으며 새로운 계정을 생성할 수도 없습니다.
       </p>
       <div class="grid grid-row-2 gap-3">
         <button
-          class="h-[46px] text-[16px] font-medium leading-7 bg-black text-white rounded-4xl py-3 px-[30px] justify-center"
+          id="next"
+          disabled
+          class="h-[46px] text-[16px] font-medium leading-7 disabled:bg-gray-300 enabled: enabled:hover:bg-black/70 bg-black text-white rounded-4xl py-3 px-[30px] justify-center"
         >
-          <a href="/src/components/Login/join.html" class="px-24">계속</a>
+          <a
+            id="nextLink"
+            href="/src/components/Login/join.html"
+            class="px-24 pointer-events-none"
+            >계속</a
+          >
         </button>
         <button
-          class="h-[46px] text-[16px] font-medium leading-7 text-black bg-white border border-gray-300 rounded-4xl py-3 px-[30px] justify-center"
+          class="h-[46px] text-[16px] font-medium leading-7 text-black bg-white border hover:bg-gray-200 border-gray-300 rounded-4xl py-3 px-[30px] justify-center"
         >
           <a href="/src/components/main/main.html" class="px-24">취소</a>
         </button>
       </div>
     </div>
+    <script>
+      // parent checkbox를 선택하면 세 checkbox의 상태가 checked로
+      function is_checked() {
+        const parent = document.getElementById('my_checkbox');
+        const children = document.getElementsByClassName('cbox');
+        const is_checked = parent.checked;
+        if (is_checked === true) {
+          for (let elem of children) {
+            elem.checked = is_checked;
+          }
+        } else if (is_checked === false) {
+          for (let elem of children) {
+            elem.checked = is_checked;
+          }
+        }
+      }
+
+      // 세 checkbox를 선택하면 parent checkbox의 상태가 checked로
+      function syncParentCheckbox() {
+        const parent = document.getElementById('my_checkbox');
+        const children = document.getElementsByClassName('cbox');
+
+        // HTMLCollection → 배열로 변환하여 every로 체크
+        const allChecked = [...children].every(elem => elem.checked);
+
+        // 부모 체크박스 상태 업데이트
+        parent.checked = allChecked;
+      }
+
+      // 모든 cbox에 change 이벤트 연결
+      window.addEventListener('DOMContentLoaded', () => {
+        const children = document.getElementsByClassName('cbox');
+
+        for (let elem of children) {
+          elem.addEventListener('change', syncParentCheckbox);
+        }
+      });
+
+      // 계속button 상태 활성화/비활성화
+      function updateNextButton() {
+        const parent = document.getElementById('my_checkbox');
+        const nextBtn = document.getElementById('next');
+        const nextLink = document.getElementById('nextLink');
+
+        if (parent.checked) {
+          nextBtn.disabled = false;
+          nextLink.classList.remove('pointer-events-none');
+        } else {
+          nextBtn.disabled = true;
+          nextLink.classList.add('pointer-events-none');
+        }
+      }
+
+      // 전체 동의 체크박스의 상태 감지
+      document.addEventListener('DOMContentLoaded', () => {
+        const parent = document.getElementById('my_checkbox');
+        updateNextButton();
+        parent.addEventListener('change', updateNextButton);
+        //사파리 브라우저
+        window.addEventListener('pageshow', updateNextButton);
+      });
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
