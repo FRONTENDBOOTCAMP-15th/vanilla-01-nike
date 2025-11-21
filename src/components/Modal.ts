@@ -10,11 +10,11 @@ class HeaderComponent extends HTMLElement {
     this.innerHTML = `
     <!-- Modal 창 -->
     <body>
-    <el-dialog class="flex m-auto">
+    <el-dialog class="flex m-auto ">
       <dialog id="drawer" aria-labelledby="drawer-title" class="w-[360px] m-auto justify-center size-auto max-h-none max-w-none scrollbar-hide overflow-invisiable bg-transparent not-open:hidden backdrop:bg-transparent">
         <el-dialog-backdrop class="absolute inset-0 bg-gray-500/75 transition-opacity duration-500 ease-in-out data-closed:opacity-0"></el-dialog-backdrop>
         <div tabindex="0" class="absolute inset-0 focus:outline-none pl-[50px]">
-          <el-dialog-panel class="pl-[42spx] group/dialog-panel relative block size-full max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700">
+          <el-dialog-panel class="pl-[42spx] group/dialog-panel relative block size-full max-w-md transform transition duration-500">
             <!-- Close button, show/hide based on slide-over state. -->
             <div class="w-[310px] relative flex h-full flex-col overflow-y-auto bg-white shadow-xl mx-auto">
               <div class="pl-[42px]">
@@ -22,131 +22,130 @@ class HeaderComponent extends HTMLElement {
                 <button type="button" command="close" commandfor="drawer">
                   <span class="sr-only">Close panel</span>
                   <svg
+                    class="group cursor-pointer"
                     width="29"
                     height="29"
                     viewBox="0 0 29 29"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <circle cx="14.5" cy="14.5" r="14.5" fill="#E5E5E5" />
-                    <path d="M6 7L21.9995 23" stroke="#111111" stroke-width="2" />
-                    <path d="M22 7L6.0005 23" stroke="#111111" stroke-width="2" />
+                    <circle cx="14.5" cy="14.5" r="14.5" fill="#E5E5E5" class=" fill-gray-300 group-hover:fill-gray-200" />
+                    <path d="M6 7L21.9995 23" stroke="#111111" stroke-width="2" class="peer" />
+                    <path d="M22 7L6.0005 23" stroke="#111111" stroke-width="2" class="peer"/>
                   </svg>
                 </button>
               </div>
                 <button
-                  class="text-[16px] rounded-4xl px-3.5 py-1.5 my-[19px] mr-4 bg-black"
+                  class="text-[16px] rounded-4xl py-1.5 my-[19px] mr-4 bg-black hover:bg-gray-600"
                 >
-                  <a href="/src/components/Login/authority.html" class="text-white"
+                  <a href="/src/components/Login/authority.html" class="text-white px-3.5 py-1.5"
                     >가입하기</a
                   >
                 </button>
                 <button
-                  class="text-[16px] rounded-4xl px-3.5 py-1.5 my-[19px] mr-4 bg-white border-gray-300 border"
+                  class="text-[16px] rounded-4xl py-1.5 my-[19px] mr-4 bg-white border-gray-300 border hover:bg-gray-200"
                 >
-                  <a href="/src/components/Login/log-in.html" class="text-black"
+                  <a href="/src/components/Login/log-in.html" class="text-black px-3.5 py-1.5"
                     >로그인</a
                   >
                 </button>
               </div>
               <div>
                 <div id="container1" class="m-0 flex flex-col pl-[42px]">
-                  <li class="flex font-normal justify-between items-center py-4">
-                    <details class="font-medium text-2xl/normal">
-                      <summary class="text-2xl list-none flex items-center gap-2">
-                        <a href="/src/pages/itemList" class="font-semibold">New & Featured</a>
-                      </summary>
-                    </details>
-                    <svg
-                      class="mr-5 float-end justify-end items-start h-6 w-6 shrink-0"
-                      width="11"
-                      height="19"
-                      viewBox="0 0 11 19"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.707031 0.707031L9.19231 9.19231L0.707031 17.6776"
-                        stroke="#111111"
-                        stroke-width="2"
-                      />
-                    </svg>
+                  <li class="flex font-normal items-center py-4 group mr-5">
+                    <a href="/src/pages/itemList" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
+                      <p class="pb-0.5">New & Featured</p>
+                      <svg
+                        class="h-6 w-6 shrink-0"
+                        width="11"
+                        height="19"
+                        viewBox="0 0 11 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.707031 0.707031L9.19231 9.19231L0.707031 17.6776"
+                          stroke="#111111"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </a>
                   </li>
-                  <li class="flex font-normal justify-between items-center py-4">
-                      <summary class="text-2xl list-none flex items-center gap-2">
-                        <a href="/src/pages/itemList" class="font-semibold">Man</a>
-                      </summary>
-                    <svg
-                      class="mr-5 float-end justify-end items-start h-6 w-6 shrink-0"
-                      width="11"
-                      height="19"
-                      viewBox="0 0 11 19"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.707031 0.707031L9.19231 9.19231L0.707031 17.6776"
-                        stroke="#111111"
-                        stroke-width="2"
-                      />
-                    </svg>
+                  <li class="flex font-normal items-center py-4 group mr-5">
+                    <a href="/src/pages/itemList" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
+                      <p class="pb-0.5">Man</p>
+                      <svg
+                        class="h-6 w-6 shrink-0"
+                        width="11"
+                        height="19"
+                        viewBox="0 0 11 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.707031 0.707031L9.19231 9.19231L0.707031 17.6776"
+                          stroke="#111111"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </a>
                   </li>
-                  <li class="flex font-normal justify-between items-center py-4">
-                      <summary class="text-2xl list-none flex items-center gap-2">
-                        <a href="/src/pages/itemList" class="font-semibold">Women</a>
-                      </summary>
-                    <svg
-                      class="mr-5 float-end justify-end items-start h-6 w-6 shrink-0"
-                      width="11"
-                      height="19"
-                      viewBox="0 0 11 19"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.707031 0.707031L9.19231 9.19231L0.707031 17.6776"
-                        stroke="#111111"
-                        stroke-width="2"
-                      />
-                    </svg>
+                  <li class="flex font-normal items-center py-4 group mr-5">
+                    <a href="/src/pages/itemList" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
+                      <p class="pb-0.5">Women</p>
+                      <svg
+                        class="h-6 w-6 shrink-0"
+                        width="11"
+                        height="19"
+                        viewBox="0 0 11 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.707031 0.707031L9.19231 9.19231L0.707031 17.6776"
+                          stroke="#111111"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </a>
                   </li>
-                  <li class="flex font-normal justify-between items-center py-4">
-                      <summary class="text-2xl list-none flex items-center gap-2">
-                        <a href="/src/pages/itemList" class="font-semibold">Kids</a>
-                      </summary>
-                    <svg
-                      class="mr-5 float-end justify-end items-start h-6 w-6 shrink-0"
-                      width="11"
-                      height="19"
-                      viewBox="0 0 11 19"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.707031 0.707031L9.19231 9.19231L0.707031 17.6776"
-                        stroke="#111111"
-                        stroke-width="2"
-                      />
-                    </svg>
+                  <li class="flex font-normal items-center py-4 group mr-5">
+                    <a href="/src/pages/itemList" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
+                      <p class="pb-0.5">Kids</p>
+                      <svg
+                        class="h-6 w-6 shrink-0"
+                        width="11"
+                        height="19"
+                        viewBox="0 0 11 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.707031 0.707031L9.19231 9.19231L0.707031 17.6776"
+                          stroke="#111111"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </a>
                   </li>
-                  <li class="flex font-normal justify-between items-center py-4">
-                      <summary class="text-2xl list-none flex items-center gap-2">
-                        <a href="/src/pages/itemList" class="font-semibold">Sale</a>
-                      </summary>
-                    <svg
-                      class="mr-5 float-end justify-end items-start h-6 w-6 shrink-0"
-                      width="11"
-                      height="19"
-                      viewBox="0 0 11 19"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.707031 0.707031L9.19231 9.19231L0.707031 17.6776"
-                        stroke="#111111"
-                        stroke-width="2"
-                      />
-                    </svg>
+                  <li class="flex font-normal items-center py-4 group mr-5">
+                    <a href="/src/pages/itemList" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
+                      <p class="pb-0.5">Sale</p>
+                      <svg
+                        class="h-6 w-6 shrink-0"
+                        width="11"
+                        height="19"
+                        viewBox="0 0 11 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.707031 0.707031L9.19231 9.19231L0.707031 17.6776"
+                          stroke="#111111"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </a>
                   </li>
                 </div>
                 <div id="container2" class="mt-7">
@@ -167,7 +166,7 @@ class HeaderComponent extends HTMLElement {
                         stroke-miterlimit="10"
                       />
                     </svg>
-                    <p><a href="" class="text-gray-400">고객센터</a></p>
+                    <p class="text-gray-400 pointer-events-none">고객센터</p>
                   </div>
                   <div
                     class="flex w-[320px] py-2 pr-[174px] pl-[39px] items-center gap-3"
@@ -185,7 +184,7 @@ class HeaderComponent extends HTMLElement {
                         stroke-width="1.5"
                       />
                     </svg>
-                    <p><a href="/src/pages/cart">장바구니</a></p>
+                    <p class="hover:text-gray-600"><a href="/src/pages/cart">장바구니</a></p>
                   </div>
                   <div
                     class="flex w-[320px] py-2 pr-[174px] pl-[39px] items-center gap-3"
@@ -204,7 +203,7 @@ class HeaderComponent extends HTMLElement {
                         stroke-miterlimit="10"
                       />
                     </svg>
-                    <p><a href="" class="text-gray-400">주문</a></p>
+                    <p class="text-gray-400 pointer-events-none">주문</p>
                   </div>
                   <div
                     class="flex w-[320px] py-2 pr-[174px] pl-[39px] items-center gap-3"
@@ -223,12 +222,9 @@ class HeaderComponent extends HTMLElement {
                         stroke-miterlimit="10"
                       />
                     </svg>
-                    <p><a href="" class="text-gray-400">매장 찾기</a></p>
+                    <p class="text-gray-400 pointer-events-none">매장 찾기</p>
                   </div>
                 </div>
-              </div>
-              <div class="relative mt-6 flex-1 px-4 sm:px-6">
-                <!-- Your content -->
               </div>
             </div>
           </el-dialog-panel>
