@@ -1,4 +1,4 @@
-import { getAxios } from './Axois';
+import { getAxios } from './axios';
 import type { Products, Product } from '../types/Products';
 import { getProductIdFromUrl } from './Id';
 

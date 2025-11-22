@@ -35,29 +35,60 @@
         비밀번호를 입력하세요.
       </h1>
       <p class="text-[16px] font-normal leading-6 mb-[26px]">test@naver.com</p>
-      <input
-        type="password"
-        placeholder="비밀번호"
-        class="w-[272px] h-14 shrink-0 rounded-xl border border-gray-500 text-[16px] flex pl-3 pr-0 mb-5 bg-[url('')] bg-no-repeat"
-      />
+      <div class="flex justify-center items-center mb-5">
+        <input
+          type="password"
+          placeholder="비밀번호"
+          class="w-[272px] h-14 shrink-0 rounded-xl border border-gray-500 hover:bg-gray-100 text-[16px] flex pl-3 pr-0"
+        />
+        <button
+          class="absolute hover:bg-gray-200 ml-55 p-1 rounded-2xl cursor-pointer"
+        >
+          <svg
+            width="21"
+            height="21"
+            viewBox="0 0 21 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.94411 4.08411C9.29488 4.03035 9.64925 4.0036 10.0041 4.00411C13.1841 4.00411 16.1741 6.29411 17.9141 10.0041C17.648 10.5687 17.3474 11.1164 17.0141 11.6441C16.9083 11.8079 16.8527 11.9991 16.8541 12.1941C16.8587 12.6426 17.1613 13.0332 17.5945 13.1496C18.0276 13.2661 18.4853 13.0799 18.7141 12.6941C19.18 11.962 19.5847 11.1928 19.9241 10.3941C20.0325 10.1419 20.0325 9.85629 19.9241 9.60411C17.9041 4.91411 14.1041 2.00402 10.0041 2.00402C9.53478 2.00175 9.0662 2.04191 8.60411 2.12411C8.24685 2.18485 7.94912 2.43157 7.82309 2.77134C7.69705 3.11111 7.76186 3.49231 7.99309 3.77134C8.22432 4.05037 8.58685 4.18485 8.94411 4.12411V4.08411ZM1.71411 0.294115C1.46046 0.0404559 1.09074 -0.058609 0.744236 0.0342365C0.397732 0.127082 0.127082 0.397732 0.0342365 0.744236C-0.058609 1.09074 0.0404559 1.46046 0.294115 1.71411L3.39411 4.80411C1.97969 6.16564 0.853971 7.7981 0.0841146 9.60411C-0.0271986 9.85917 -0.0271986 10.1491 0.0841146 10.4041C2.10411 15.0941 5.90411 18.0041 10.0041 18.0041C11.8012 17.9917 13.5559 17.4566 15.0541 16.4641L18.2941 19.7141C18.4819 19.9034 18.7375 20.0099 19.0041 20.0099C19.2708 20.0099 19.5263 19.9034 19.7141 19.7141C19.9034 19.5263 20.0099 19.2708 20.0099 19.0041C20.0099 18.7375 19.9034 18.4819 19.7141 18.2941L1.71411 0.294115ZM8.07411 9.48411L10.5241 11.9341C10.3551 11.9826 10.1799 12.0062 10.0041 12.0041C8.89954 12.0041 8.00411 11.1087 8.00411 10.0041C8.00207 9.8283 8.02565 9.65313 8.07411 9.48411ZM10.0041 16.0041C6.82411 16.0041 3.83411 13.7141 2.10411 10.0041C2.7502 8.57786 3.66719 7.29069 4.80411 6.21411L6.57411 8.00411C5.72013 9.56273 5.99695 11.4979 7.25364 12.7546C8.51034 14.0113 10.4455 14.2881 12.0041 13.4341L13.5941 15.0041C12.5052 15.645 11.2675 15.9897 10.0041 16.0041Z"
+              fill="#111111"
+            />
+          </svg>
+        </button>
+      </div>
       <p
-        class="text-gray-500 text-[16px] font-normal leading-6 mb-[90px] underline"
+        class="text-gray-400 text-[16px] font-normal leading-6 mb-[90px] underline"
       >
-        비밀번호 찾기
+        <a href="/"> 비밀번호 찾기 </a>
       </p>
       <div class="flex justify-between">
         <button
-          class="text-[16px] font-medium leading-7 bg-white border border-gray-400 rounded-4xl py-3 px-[30px]"
+          class="text-[16px] font-medium leading-7 bg-white border border-gray-400 hover:bg-gray-200 rounded-4xl py-3"
         >
-          <a href="/src/components/Login/log-in.html">이전</a>
+          <a href="/src/components/Login/log-in.html" class="py-4 px-[30px]"
+            >이전</a
+          >
         </button>
         <button
-          class="text-[16px] font-medium leading-7 bg-black text-white rounded-4xl py-3 px-[30px]"
+          class="text-[16px] font-medium leading-7 bg-black hover:bg-gray-700 text-white rounded-4xl py-3"
         >
-          <a href="/src/components/main/main.html">로그인</a>
+          <a href="/" class="py-4 px-[30px]">로그인</a>
         </button>
       </div>
     </div>
+    <script>
+      const btnElem = document.querySelector('button');
+      const inputElem = document.querySelector('input');
+      btnElem.addEventListener('click', function (event) {
+        if (inputElem.type === 'password') {
+          inputElem.type = 'text';
+        } else {
+          inputElem.type = 'password';
+        }
+      });
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

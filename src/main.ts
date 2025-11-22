@@ -30,7 +30,6 @@ class HeaderComponent extends HTMLElement {
         scrollbar-width: none;
       }
     </style>
-    <!-- <link rel="stylesheet" href="/src/components/main/main.css" /> -->
   </head>
   <body class="w-[360px] h-[3000px] m-0 flex flex-col font-sans">
     <div
@@ -40,8 +39,8 @@ class HeaderComponent extends HTMLElement {
       <section id="container1" class="pt-10 mx-6 w-[316px] h-[646.23px]">
       <img src="${ImgM1}" class="w-[312px] h-[426px] object-cover"/>
         <h1 class="text-2xl font-medium leading-9 my-6">워크아웃 에센셜</h1>
-        <button class="bg-black rounded-4xl text-white py-1.5 px-4">
-        <a href="/src/pages/itemList">
+        <button class="bg-black hover:bg-gray-600 rounded-4xl text-white py-1.5">
+        <a href="/src/pages/itemList" class="py-1.5 px-4">
          구매하기
         </a>
         </button>
@@ -50,8 +49,8 @@ class HeaderComponent extends HTMLElement {
         <h1 id="title" class="text-2xl font-medium leading-9 mb-6">Featured</h1>
         <img src="${ImgM2}" class="w-[312px] h-[312px] object-cover"/>
         <h1 class="text-2xl font-medium leading-9 my-6">워크아웃 에센셜</h1>
-        <button class="bg-black rounded-4xl text-white py-1.5 px-4">
-          <a href="/src/pages/itemList">
+        <button class="bg-black hover:bg-gray-600 rounded-4xl text-white py-1.5">
+          <a href="/src/pages/itemList" class="py-1.5 px-4">
          구매하기
         </a>
         </button>
@@ -63,7 +62,7 @@ class HeaderComponent extends HTMLElement {
         <div class="flex flex-row justify-between items-end /*gap-[79px]*/">
           <h1 class="text-2xl font-medium leading-9 mt-0">나이키 멤버십</h1>
           <p class="text-[16px] font-medium leading-7 pr-6">
-          <a href="/src/components/Login/authority.html" class=" hover:bg-gray-950/10">
+          <a href="/src/components/Login/authority.html" class=" hover:text-gray-950/70">
          멤버 가입하기
         </a></p>
         </div>
@@ -81,8 +80,8 @@ class HeaderComponent extends HTMLElement {
             <h2 class="text-[20px] font-medium leading-[35px] mt-4">
               언제 어디서든 운동하기
             </h2>
-            <button class="bg-black rounded-4xl text-white py-1.5 px-4 mt-4">
-            <a href="/src/components/Login/log-in.html">
+            <button class="bg-black hover:bg-gray-600 rounded-4xl text-white py-1.5 mt-4">
+            <a href="/src/components/Login/log-in.html" class="py-1.5 px-4">
               함께 운동하기
               </a>
             </button>
@@ -97,8 +96,8 @@ class HeaderComponent extends HTMLElement {
             <h2 class="text-[20px] font-medium leading-[35px] mt-4">
               새로운 모험으로 이끌어 주는 아이템
             </h2>
-            <button class="bg-black rounded-4xl text-white py-1.5 px-4 mt-4">
-            <a href="/src/components/Login/log-in.html">
+            <button class="bg-black hover:bg-gray-600 rounded-4xl text-white py-1.5 mt-4">
+            <a href="/src/components/Login/log-in.html" class="py-1.5 px-4">
               함께 운동하기
               </a>
             </button>
@@ -112,8 +111,8 @@ class HeaderComponent extends HTMLElement {
               경기 중 독보적인 존재감을 드러낼<br />
               아이템
             </h2>
-            <button class="bg-black rounded-4xl text-white py-1.5 px-4 mt-4">
-            <a href="/src/components/Login/log-in.html">
+            <button class="bg-black hover:bg-gray-600 rounded-4xl text-white py-1.5 mt-4">
+            <a href="/src/components/Login/log-in.html" class="py-1.5 px-4">
               함께 운동하기
               </a>
             </button>
