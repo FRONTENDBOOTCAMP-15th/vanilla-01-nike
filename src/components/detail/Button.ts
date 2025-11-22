@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getAxios } from '../../utils/Axois';
+import { getAxios } from '../../utils/axios';
 
 class ProductButtonBase extends HTMLElement {
   private selectedSize: string | null = null; // 현재 선택된 사이즈 값
