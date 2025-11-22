@@ -1,5 +1,6 @@
 import type { Products } from '../../types/Products';
 import { fetchProductDetailByUrl } from '../../utils/productService';
+import { getCategoryNames } from '../../utils/Category';
 
 class ProductHeader extends HTMLElement {
   product: Products | null = null;
@@ -49,7 +50,11 @@ class ProductHeader extends HTMLElement {
 
     // 상품 카테고리 정보
     const categories = p.extra?.category ?? [];
-    this.querySelector('#p-category')!.textContent = categories.join(', ');
+    const lastCategoryCode = categories[categories.length - 1];
+    const categoryName = lastCategoryCode
+      ? getCategoryNames([lastCategoryCode])[0]
+      : '';
+    this.querySelector('#p-category')!.textContent = categoryName;
 
     // 상품 가격 정보
     this.querySelector('#p-price')!.textContent = p.price
