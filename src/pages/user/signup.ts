@@ -1,6 +1,5 @@
-import { uploadFileApi } from '../../apis/file.ts';
 import { createUserApi } from '../../apis/user.ts';
-import type { CreateUserRequest, UserType } from '../../types/user';
+import type { UserType } from '../../types/user';
 
 /**
  * 회원가입을 처리하는 함수
@@ -14,34 +13,26 @@ import type { CreateUserRequest, UserType } from '../../types/user';
  */
 async function signup(formElement: HTMLFormElement) {
   const formData = new FormData(formElement);
+  const urlParams = new URLSearchParams(location.search);
+  const email = urlParams.get('email');
 
-  // 첨부파일(프로필 이미지) 처리
-  let image;
-  const attachFile = formData.get('attach') as File;
-
-  if (attachFile.size > 0) {
-    // 파일 업로드 API 호출
-    const fileRes = await uploadFileApi(attachFile);
-    console.log(`fileRes`, fileRes);
-    if (fileRes?.ok) {
-      image = fileRes.item[0].path;
-    }
+  if (!email) {
+    alert('잘못된 접근입니다. 이메일 정보가 없습니다.');
+    return;
   }
 
-  const user: CreateUserRequest = {
+  const user = {
     type: (formData.get('type') || 'user') as UserType,
-    email: formData.get('email') as string,
+    email,
     name: formData.get('name') as string,
     password: formData.get('password') as string,
-    image,
   };
 
-  // 사용자 생성 API 호출
   const userData = await createUserApi(user);
-  console.log(`userData`, userData);
+
   if (userData?.ok) {
     alert('회원가입이 완료되었습니다.');
-    location.href = '/'; // 메인 페이지로 이동
+    location.href = '/';
   }
 }
 
@@ -56,14 +47,14 @@ async function signup(formElement: HTMLFormElement) {
  * @returns {Promise<void>}
  */
 async function handleSubmit(event: Event) {
-  event.preventDefault(); // 브라우저 기본 동작 취소
+  event.preventDefault();
   const formElement = event.target as HTMLFormElement;
-  // 입력 데이터 검증
+
   const isValid = validateForm(formElement);
-  if (isValid) {
-    await signup(formElement); // 회원가입 진행
-  }
-  console.log('어디');
+
+  if (!isValid) return;
+  console.log('폼 검증 통과, 회원가입 진행');
+  await signup(formElement);
 }
 
 /**
@@ -76,38 +67,97 @@ async function handleSubmit(event: Event) {
  * @returns {boolean} - 검증 통과 여부 (true: 통과, false: 실패)
  */
 function validateForm(formElement: HTMLFormElement) {
-  let result: boolean = true;
+  let result = true;
 
   const name =
     formElement.querySelector<HTMLInputElement>('input[name="name"]')!;
-  // const email = formElement.querySelector<HTMLInputElement>(
-  //   'input[name="email"]',
-  // )!;
+  const firstname = formElement.querySelector<HTMLInputElement>(
+    'input[name="firstName"]',
+  )!;
   const password = formElement.querySelector<HTMLInputElement>(
     'input[name="password"]',
   )!;
+  const agree = formElement.querySelector<HTMLInputElement>(
+    'input[type="checkbox"]',
+  )!;
 
+  // 이름 체크
   if (name.value.trim() === '') {
     name.nextElementSibling!.textContent = '이름은 필수입니다.';
-    name.focus();
     result = false;
   } else {
     name.nextElementSibling!.textContent = '';
   }
-  console.log('여기');
 
+  // 성 체크
+  if (firstname.value.trim() === '') {
+    firstname.nextElementSibling!.textContent = '성은 필수입니다.';
+    result = false;
+  } else {
+    firstname.nextElementSibling!.textContent = '';
+  }
+
+  // 비밀번호 체크
   if (password.value.trim() === '') {
     password.nextElementSibling!.textContent = '비밀번호는 필수입니다.';
-    password.focus();
     result = false;
   } else {
     password.nextElementSibling!.textContent = '';
   }
 
+  // 필수 작성사항 및 체크박스 체크 여부
+  if (name.value.trim() === '' || password.value.trim() === '') {
+    alert('필수 작성사항을 모두 입력해주세요.');
+    result = false;
+  } else if (!agree.checked) {
+    alert('약관에 동의해야 회원가입이 가능합니다.');
+    result = false;
+  }
+
   return result;
 }
+
+// 정규식
+const regEight = /^.{8,}$/;
+const regMin = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+
+// DOM 변수
+const userPwInput = document.getElementById('pw') as HTMLInputElement;
+const loginTxtFirst = document.getElementById('loginTxtFirst') as HTMLElement;
+const loginTxtSecond = document.getElementById('loginTxtSecond') as HTMLElement;
+
+function regPassword(pw: string) {
+  if (pw === '') {
+    loginTxtFirst.innerHTML = `<p style="color:var(--color-gray-500)">X 최소 8자 이상</p>`;
+    loginTxtSecond.innerHTML =
+      '<p style="color:var(--color-gray-500)">X 알파벳 대문자 및 소문자 조합, 최소 1개 이상의 숫자</p>';
+  } else if (!regEight.test(pw)) {
+    loginTxtFirst.innerHTML = '<p style="color: red">X 최소 8자 이상 </p>';
+    loginTxtSecond.innerHTML =
+      '<p style="color: red">X 알파벳 대문자 및 소문자 조합, 최소 1개 이상의 숫자</p>';
+  } else if (!regMin.test(pw)) {
+    loginTxtFirst.innerHTML =
+      '<p style="color: var(--color-green-600)">V 최소 8자 이상 </p>';
+    loginTxtSecond.innerHTML =
+      '<p style="color: red">X 알파벳 대문자 및 소문자 조합, 최소 1개 이상의 숫자</p>';
+  } else {
+    loginTxtFirst.innerHTML =
+      '<p style="color: var(--color-green-600)">V 최소 8자 이상 </p>';
+    loginTxtSecond.innerHTML =
+      '<p style="color: var(--color-green-600)">V 알파벳 대문자 및 소문자 조합, 최소 1개 이상의 숫자</p>';
+  }
+}
+
+// 입력 시 실시간 체크
+userPwInput.addEventListener('input', () => {
+  const pw = userPwInput.value;
+  regPassword(pw);
+});
 
 document
   .querySelector('#signup-form')
   ?.addEventListener('submit', handleSubmit);
-console.log(document.querySelector('#signup-form'));
+
+document.querySelector('#userCreateBtn')?.addEventListener('click', () => {
+  regPassword(userPwInput.value);
+});
