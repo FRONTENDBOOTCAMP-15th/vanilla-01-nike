@@ -161,6 +161,33 @@ class RecommendedProducts extends HTMLElement {
 
       list.appendChild(li);
     });
+
+    // 좌우 이동 버튼 이벤트
+    const prevBtn = this.querySelector(
+      'button[aria-label="이전 제품 보기"]',
+    ) as HTMLButtonElement;
+
+    const nextBtn = this.querySelector(
+      'button[aria-label="다음 제품 보기"]',
+    ) as HTMLButtonElement;
+
+    const scrollAmount = 208; // 한 번 클릭 시 이동 거리(px)
+
+    // 이전 버튼 클릭 시 왼쪽으로 스크롤
+    prevBtn?.addEventListener('click', () => {
+      list.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth',
+      });
+    });
+
+    // 다음 버튼 클릭 시 오른쪽으로 스크롤
+    nextBtn?.addEventListener('click', () => {
+      list.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth',
+      });
+    });
   }
 }
 
