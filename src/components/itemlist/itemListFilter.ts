@@ -1,11 +1,21 @@
 import type { SortOption } from './itemListData';
 
-type FilterConfig = {
-  getCurrentSort: () => SortOption;
-  onApply: (option: SortOption) => void;
+// 모달에서 전달받는 필터 체크박스 상태
+export type FilterFlags = {
+  men?: boolean;
+  women?: boolean;
+  adult?: boolean;
+  kids?: boolean;
+  sale?: boolean;
 };
 
-// 필터 설정창 열기/닫기 및 정렬 라디오 동기화 담당
+type FilterConfig = {
+  getCurrentSort: () => SortOption;
+  getCurrentFilters?: () => FilterFlags;
+  onApply: (option: SortOption, filters: FilterFlags) => void;
+};
+
+// 필터 모달 열기/닫기 및 상태 동기화 담당
 export const initFilterModal = (host: HTMLElement, config: FilterConfig) => {
   const modal = host.querySelector<HTMLElement>('[data-filter-modal]');
   const openButton = host.querySelector<HTMLElement>('[data-filter-open]');
@@ -15,6 +25,8 @@ export const initFilterModal = (host: HTMLElement, config: FilterConfig) => {
   );
   const sortRadios =
     host.querySelectorAll<HTMLInputElement>('[data-sort-radio]');
+  const filterCheckboxes =
+    host.querySelectorAll<HTMLInputElement>('[data-filter-flag]');
 
   if (
     !modal ||
@@ -26,6 +38,19 @@ export const initFilterModal = (host: HTMLElement, config: FilterConfig) => {
     return;
 
   let pendingOption: SortOption = config.getCurrentSort();
+  let pendingFilters: FilterFlags = { ...(config.getCurrentFilters?.() ?? {}) };
+
+  const openModal = () => {
+    pendingOption = config.getCurrentSort();
+    pendingFilters = { ...(config.getCurrentFilters?.() ?? {}) };
+    syncRadios();
+    syncCheckboxes();
+    modal.classList.remove('hidden');
+  };
+
+  const closeModal = () => {
+    modal.classList.add('hidden');
+  };
 
   const syncRadios = () => {
     sortRadios.forEach(radio => {
@@ -33,14 +58,11 @@ export const initFilterModal = (host: HTMLElement, config: FilterConfig) => {
     });
   };
 
-  const openModal = () => {
-    pendingOption = config.getCurrentSort();
-    syncRadios();
-    modal.classList.remove('hidden');
-  };
-
-  const closeModal = () => {
-    modal.classList.add('hidden');
+  const syncCheckboxes = () => {
+    filterCheckboxes.forEach(box => {
+      const key = box.value as keyof FilterFlags;
+      box.checked = Boolean(pendingFilters[key]);
+    });
   };
 
   sortRadios.forEach(radio => {
@@ -51,10 +73,21 @@ export const initFilterModal = (host: HTMLElement, config: FilterConfig) => {
     });
   });
 
+  filterCheckboxes.forEach(box => {
+    box.addEventListener('change', () => {
+      const key = box.value as keyof FilterFlags;
+      if (box.checked) {
+        pendingFilters[key] = true;
+      } else {
+        delete pendingFilters[key];
+      }
+    });
+  });
+
   openButton.addEventListener('click', openModal);
   closeButton.addEventListener('click', closeModal);
   applyButton.addEventListener('click', () => {
-    config.onApply(pendingOption);
+    config.onApply(pendingOption, pendingFilters);
     closeModal();
   });
 };
