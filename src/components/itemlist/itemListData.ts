@@ -1,7 +1,5 @@
 import { getProducts } from '../../apis/itemListApi';
 
-export type SortOption = 'recommended' | 'new' | 'low' | 'high';
-
 export type Product = {
   id?: string | number;
   name: string;
@@ -9,10 +7,16 @@ export type Product = {
   mainImages?: { path: string; name: string }[];
   extra?: {
     isNew?: boolean;
+    isBest?: boolean;
     category?: string[];
     color?: string;
+    gender?: string;
+    primeCost: number;
+    size?: Array<number | string> | number | string;
   };
 };
+
+export type SortOption = 'recommended' | 'new' | 'low' | 'high';
 
 // API에서 데이터를 받아와 항상 동일한 상품 배열 형태로 맞춤.
 export const fetchProducts = async (): Promise<Product[]> => {
@@ -22,7 +26,43 @@ export const fetchProducts = async (): Promise<Product[]> => {
   return [];
 };
 
-// 정렬 기준에 맞춰 새 배열 반환
+// 네비게이션 바 클릭 시 상품 반환
+export const filterByCategory = (products: Product[], key: string) => {
+  const normalizedKey = key?.trim();
+  if (!normalizedKey) {
+    return [...products];
+  }
+
+  if (normalizedKey === '신발') {
+    return products.filter(product =>
+      Array.isArray(product.extra?.size)
+        ? product.extra?.size.some(
+            (value: number | string) => typeof value === 'number',
+          )
+        : product.extra?.size === undefined ||
+          typeof product.extra?.size === 'number',
+    );
+  }
+
+  if (normalizedKey === '재킷 & 베스트') {
+    return products.filter(product =>
+      Array.isArray(product.extra?.size)
+        ? product.extra?.size.some(
+            (value: number | string) => typeof value === 'string',
+          )
+        : typeof product.extra?.size === 'string',
+    );
+  }
+
+  return products.filter(product => {
+    const categories = product.extra?.category ?? [];
+    return categories.some(category =>
+      category.toLowerCase().includes(normalizedKey.toLowerCase()),
+    );
+  });
+};
+
+// 필터 정렬 기준에 맞춰 새 배열 반환
 export const sortProducts = (list: Product[], option: SortOption) => {
   const sorted = [...list];
   if (!sorted.length) return sorted;
@@ -42,20 +82,4 @@ export const sortProducts = (list: Product[], option: SortOption) => {
   }
 
   return sorted;
-};
-
-// 네비게이션 바 클릭 시 상품 반환
-export const filterByCategory = (products: Product[], key: string) => {
-  const normalizedKey = key?.trim();
-  if (!normalizedKey || normalizedKey === '신발') {
-    return [...products];
-  }
-
-  // 초기 탭에서는 필터 적용하지 않음.
-  return products.filter(product => {
-    const categories = product.extra?.category ?? [];
-    return categories.some(category =>
-      category.toLowerCase().includes(normalizedKey.toLowerCase()),
-    );
-  });
 };
