@@ -32,9 +32,14 @@ export const createProductCard = ({
       ? `${new Intl.NumberFormat('ko-KR').format(Number(originalPrice))} 원`
       : null;
 
+  const detailUrl =
+    id !== undefined
+      ? `../../src/pages/detail?id=${String(id)}`
+      : `../../src/pages/detail`;
+
   return `
     <li>
-      <a href="../../src/pages/detail" class="productLink block" aria-labelledby="${id ?? 'product'}-name">
+      <a href="${detailUrl}" class="productLink block" aria-labelledby="${id ?? 'product'}-name">
         <article class="productItem">
           <figure class="productMedia pt-[100%] relative">
             <img
