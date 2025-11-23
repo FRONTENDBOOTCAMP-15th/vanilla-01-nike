@@ -1,125 +1,97 @@
 class HeaderComponent extends HTMLElement {
   // 웹 컴포넌트가 DOM에 연결될 때 호출되는 메소드
+
   // 컴포넌트 렌더링과 이벤트 초기화를 수행
   connectedCallback() {
     this.render();
+    this.setupAccordion(); // 아코디언 이벤트를 설정하는 메소드 호출
   }
 
   // UI를 렌더링
   render() {
     this.innerHTML = `
     <footer class="m-0 py-12 px-6 w-[360px] flex flex-col bg-white">
-      <div id="container" class="m-0 flex flex-col">
-        <li
-          id="notice"
-          class="flex font-normal justify-between items-center py-5 border-t border-gray-300"
-        >
-          <details class="font-medium text-[14px]">
-            <summary class="list-none flex items-center gap-2">
-              <p class=" hover:bg-gray-950/10">안내</p>
-            </summary>
-            <p class="py-[15px] text-[13px] font-normal text-gray-500">
-              비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실 수
-              있습니다.
-            </p>
-            <ol class="py-[15px] text-[13px] font-normal text-gray-500 p-0 m-0">
-              1. 가족 또는 지인이 동일한 카드를 등록하여 사용하지 않았는지
-              확인해보세요.
-            </ol>
-            <p class="py-[15px] text-[13px] font-normal text-gray-500">
-              [고객지원 > 여정 및 요금 > 내 요금 및 수수료 검토 > 미터기 요금을
-              중복으로 결제하였습니다]
-            </p>
-          </details>
-          <svg
-            class="float-end justify-end items-start h-6 w-6 shrink-0"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.9662 8.47559L12.0002 15.4426L5.0332 8.47559"
-              stroke="#111111"
-              stroke-width="1.5"
-            />
-          </svg>
-        </li>
-        <li
-          id="notice"
-          class="flex font-normal justify-between items-center py-5 border-t border-gray-300"
-        >
-          <details class="font-medium text-[14px]">
-            <summary class="list-none flex items-center gap-2">
-              <p class=" hover:bg-gray-950/10">고객센터</p>
-            </summary>
-            <p class="py-[15px] text-[13px] font-normal text-gray-500">
-              비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실 수
-              있습니다.
-            </p>
-            <ol class="py-[15px] text-[13px] font-normal text-gray-500 p-0 m-0">
-              1. 가족 또는 지인이 동일한 카드를 등록하여 사용하지 않았는지
-              확인해보세요.
-            </ol>
-            <p class="py-[15px] text-[13px] font-normal text-gray-500">
-              [고객지원 > 여정 및 요금 > 내 요금 및 수수료 검토 > 미터기 요금을
-              중복으로 결제하였습니다]
-            </p>
-          </details>
-          <svg
-            class="float-end justify-end items-start h-6 w-6 shrink-0"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.9662 8.47559L12.0002 15.4426L5.0332 8.47559"
-              stroke="#111111"
-              stroke-width="1.5"
-            />
-          </svg>
-        </li>
-        <li
-          id="notice"
-          class="flex font-normal justify-between items-center py-5 border-y border-gray-300"
-        >
-          <details class="font-medium text-[14px]">
-            <summary class="list-none flex items-center gap-2">
-              <p class=" hover:bg-gray-950/10">회사소개</p>
-            </summary>
-            <p class="py-[15px] text-[13px] font-normal text-gray-500">
-              비슷한 금액의 요금이 중복 청구 된 경우 아래와 같이 생각하실 수
-              있습니다.
-            </p>
-            <ol class="py-[15px] text-[13px] font-normal text-gray-500 p-0 m-0">
-              1. 가족 또는 지인이 동일한 카드를 등록하여 사용하지 않았는지
-              확인해보세요.
-            </ol>
-            <p class="py-[15px] text-[13px] font-normal text-gray-500">
-              [고객지원 > 여정 및 요금 > 내 요금 및 수수료 검토 > 미터기 요금을
-              중복으로 결제하였습니다]
-            </p>
-          </details>
-          <svg
-            class="float-end justify-end items-start h-6 w-6 shrink-0"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.9662 8.47559L12.0002 15.4426L5.0332 8.47559"
-              stroke="#111111"
-              stroke-width="1.5"
-            />
-          </svg>
-        </li>
+    <div id="container1" class="m-0 flex flex-col">
+      <div class="border-b border-gray-300">
+        <button class="w-full flex justify-between items-center py-4 pl-3 hover:bg-gray-200 accordion-btn">
+          <span class="text-[14px] font-medium">안내</span>
+              <svg
+                class="float-end justify-end items-start h-6 w-6 shrink-0"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.9662 8.47559L12.0002 15.4426L5.0332 8.47559"
+                  stroke="#111111"
+                  stroke-width="1.5"
+                />
+              </svg>
+        </button>
+        <div class="hidden flex flex-col gap-3 accordion-content py-3 pl-4 text-gray-400 text-sm font-bold">
+          <p> 멤버가입</p>
+          <p> 매장찾기</p>
+          <p> 제품 가이드</p>
+          <p> 러닝화 가이드</p>
+        </div>
       </div>
-
+      <div class="border-b border-gray-300">
+        <button class="w-full flex justify-between items-center py-4 pl-3 hover:bg-gray-200 accordion-btn">
+          <span class="text-[14px] font-medium">고객센터</span>
+              <svg
+                class="float-end justify-end items-start h-6 w-6 shrink-0"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.9662 8.47559L12.0002 15.4426L5.0332 8.47559"
+                  stroke="#111111"
+                  stroke-width="1.5"
+                />
+              </svg>
+        </button>
+        <div class="hidden flex flex-col gap-3 accordion-content py-3 pl-4 text-gray-400 text-sm font-bold">
+          <p> 주문배송조회</p>
+          <p> 반품 정책</p>
+          <p> 결제 방법</p>
+          <p> 공지사항</p>
+          <p> 문의하기</p>
+        </div>
+      </div>
+      <div class="border-b border-gray-300">
+        <button class="w-full flex justify-between items-center py-4 pl-3 hover:bg-gray-200 accordion-btn">
+          <span class="text-[14px] font-medium">회사소개</span>
+            <svg
+              class="float-end justify-end items-start h-6 w-6 shrink-0"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.9662 8.47559L12.0002 15.4426L5.0332 8.47559"
+                stroke="#111111"
+                stroke-width="1.5"
+              />
+            </svg>
+        </button>
+        <div class="hidden flex flex-col gap-3 accordion-content py-3 pl-4 text-gray-400 text-sm font-bold">
+          <p> About Nike</p>
+          <p> 소식</p>
+          <p> 채용</p>
+          <p> 투자자</p>
+          <p> 지속가능성</p>
+          <p> 코칭</p>
+          <p> 신고하기</p>
+        </div>
+      </div>
+    </div>
       <div
         id="container2"
         class="py-16 text-[14px] flex flex-col gap-2.5 text-gray-500"
@@ -149,6 +121,30 @@ class HeaderComponent extends HTMLElement {
       </div>
     </footer>
     `;
+  }
+
+  // 아코디언 이벤트를 설정하는 새로운 메소드
+  setupAccordion(): void {
+    // this.querySelectorAll()을 사용하여 컴포넌트 내부의 버튼 c찾기
+    const accordionBtns = this.querySelectorAll(
+      '.accordion-btn',
+    ) as NodeListOf<HTMLButtonElement>;
+
+    accordionBtns.forEach((btn: HTMLButtonElement) => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('svg'); // SVG는 Element로 간주
+
+        // 5. 타입 가드(Type Guard)를 사용하여 null 체크
+        if (content && icon) {
+          // 펼쳐짐 토글
+          content.classList.toggle('hidden');
+
+          // 아이콘 회전
+          icon.classList.toggle('rotate-180');
+        }
+      });
+    });
   }
 }
 
