@@ -5,6 +5,7 @@ class WishList extends HTMLElement {
     this.render();
   }
 
+  // 테일윈드 작업
   render() {
     this.innerHTML = `
     <div class="wrap bg-white mx-auto w-[360px]">
@@ -22,8 +23,8 @@ class WishList extends HTMLElement {
                 </div>
                 <div>
                   <p class="target text-[#707072]">남성 신발</p>
-                  <p class="text-[#707072]">사이즈<span class="ml-2.5 underline">275</span></p>
-                  <button type="button" class="block cursor-pointer h-11 px-5 py-2 mt-3 border border-[#e5e5e5] rounded-[22px] text-[#111]">장바구니에 추가</button>
+                  <p class="text-[#707072]">사이즈<span class="ml-2.5 underline cursor-pointer">275</span></p>
+                  <button type="button" class="block cursor-pointer h-11 px-5 py-2 mt-3 border border-[#e5e5e5] rounded-[22px] text-[#111] hover:border hover:border-[#111]">장바구니에 추가</button>
                 </div>
             </div>
           </div>
@@ -39,13 +40,13 @@ class WishList extends HTMLElement {
                 </div>
                 <div>
                   <p class="target text-[#707072]">남성 신발</p>
-                  <p class="text-[#707072]">사이즈<span class="ml-2.5 underline">275</span></p>
-                  <button type="button" class="block cursor-pointer h-11 px-5 py-2 mt-3 border border-[#e5e5e5] rounded-[22px] text-[#111] ">장바구니에 추가</button>
+                  <p class="text-[#707072]">사이즈<span class="ml-2.5 underline cursor-pointer">275</span></p>
+                  <button type="button" class="block cursor-pointer h-11 px-5 py-2 mt-3 border border-[#e5e5e5] rounded-[22px] text-[#111] hover:border hover:border-[#111]">장바구니에 추가</button>
                 </div>
             </div>
           </div>
         </div>
-        <button type="button" class="moreButton mt-[33px] text-[14px] text-[#707072] underline" >위시리스트 상품 모두 보기</button>
+        <button type="button" class="moreButton mt-[33px] text-[14px] text-[#707072] underline cursor-pointer" >위시리스트 상품 모두 보기</button>
       </section>
     </div>
   `;
