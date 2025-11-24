@@ -53,7 +53,7 @@ class HeaderComponent extends HTMLElement {
               <div>
                 <div id="container1" class="m-0 flex flex-col pl-[42px]">
                   <li class="flex font-normal items-center py-4 group mr-5">
-                    <a href="/src/pages/itemList" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
+                    <a href="/src/pages/itemList?type=new" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
                       <p class="pb-0.5">New & Featured</p>
                       <svg
                         class="h-6 w-6 shrink-0"
@@ -72,8 +72,8 @@ class HeaderComponent extends HTMLElement {
                     </a>
                   </li>
                   <li class="flex font-normal items-center py-4 group mr-5">
-                    <a href="/src/pages/itemList" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
-                      <p class="pb-0.5">Man</p>
+                    <a href="/src/pages/itemList?type=men" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
+                      <p class="pb-0.5">Men</p>
                       <svg
                         class="h-6 w-6 shrink-0"
                         width="11"
@@ -91,7 +91,7 @@ class HeaderComponent extends HTMLElement {
                     </a>
                   </li>
                   <li class="flex font-normal items-center py-4 group mr-5">
-                    <a href="/src/pages/itemList" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
+                    <a href="/src/pages/itemList?type=women" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
                       <p class="pb-0.5">Women</p>
                       <svg
                         class="h-6 w-6 shrink-0"
@@ -110,7 +110,7 @@ class HeaderComponent extends HTMLElement {
                     </a>
                   </li>
                   <li class="flex font-normal items-center py-4 group mr-5">
-                    <a href="/src/pages/itemList" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
+                    <a href="/src/pages/itemList?type=kids" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
                       <p class="pb-0.5">Kids</p>
                       <svg
                         class="h-6 w-6 shrink-0"
@@ -129,7 +129,7 @@ class HeaderComponent extends HTMLElement {
                     </a>
                   </li>
                   <li class="flex font-normal items-center py-4 group mr-5">
-                    <a href="/src/pages/itemList" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
+                    <a href="/src/pages/itemList?type=sale" class="w-[260px] text-2xl/normal flex justify-between items-center font-semibold pb-1.5 group-hover:text-gray-500">
                       <p class="pb-0.5">Sale</p>
                       <svg
                         class="h-6 w-6 shrink-0"
