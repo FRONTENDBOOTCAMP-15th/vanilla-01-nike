@@ -1,5 +1,6 @@
 import type { Products } from '../../types/Products';
 import { fetchProductDetailByUrl } from '../../utils/productService';
+import { getCategoryNames } from '../../utils/Category';
 
 class ProductHeader extends HTMLElement {
   product: Products | null = null;
@@ -30,7 +31,7 @@ class ProductHeader extends HTMLElement {
           <p class="mt-3 mb-6" id="p-price">가격 정보</p>
         </section>
 
-        <img id="main-img" src="" class="w-[360px] h-[450px] bg-gray-50 mb-1" />
+        <img id="main-img" class="w-[360px] h-[450px] bg-gray-50 mb-1" />
 
         <section class="flex gap-2.5 overflow-x-auto [&::-webkit-scrollbar]:hidden" id="thumb-wrap">
           // 상품 상세 이미지 정보 삽입
@@ -49,7 +50,11 @@ class ProductHeader extends HTMLElement {
 
     // 상품 카테고리 정보
     const categories = p.extra?.category ?? [];
-    this.querySelector('#p-category')!.textContent = categories.join(', ');
+    const lastCategoryCode = categories[categories.length - 1];
+    const categoryName = lastCategoryCode
+      ? getCategoryNames([lastCategoryCode])[0]
+      : '';
+    this.querySelector('#p-category')!.textContent = categoryName;
 
     // 상품 가격 정보
     this.querySelector('#p-price')!.textContent = p.price

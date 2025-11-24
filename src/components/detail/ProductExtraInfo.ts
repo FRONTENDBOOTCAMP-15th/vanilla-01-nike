@@ -1,6 +1,7 @@
 class ProductExtraInfo extends HTMLElement {
   connectedCallback() {
     this.render();
+    this.addToggleEvent();
   }
 
   render() {
@@ -21,6 +22,7 @@ class ProductExtraInfo extends HTMLElement {
             height="24"
             viewBox="0 0 24 24"
             fill="none"
+            class="transition-transform duration-200"
           >
             <path
               d="M18.9662 8.47607L12.0002 15.4431L5.0332 8.47607"
@@ -31,7 +33,7 @@ class ProductExtraInfo extends HTMLElement {
         </button>
 
         <!-- 무료 배송 및 반품 토글 시 -->
-        <div id="shippingPanel" hidden>
+        <div id="shippingPanel" class="pb-7.5" hidden>
           <p class="text-sm">일반 배송</p>
           <ul
             class="flex flex-col gap-3 list-disc list-outside pl-7 my-3 text-xs"
@@ -84,6 +86,7 @@ class ProductExtraInfo extends HTMLElement {
             height="24"
             viewBox="0 0 24 24"
             fill="none"
+            class="transition-transform duration-200"
           >
             <path
               d="M18.9662 8.47607L12.0002 15.4431L5.0332 8.47607"
@@ -98,10 +101,10 @@ class ProductExtraInfo extends HTMLElement {
       </section>
 
       <!-- 상품 추가 정보 섹션 -->
-      <section class="pb-7.5 border-b border-[#e5e5e5]">
+      <section class="border-b border-[#e5e5e5]">
         <button
           type="button"
-          aria-expanded="true"
+          aria-expanded="flase"
           aria-controls="infoPanel"
           class="flex justify-between cursor-pointer w-full my-7.5"
         >
@@ -112,9 +115,10 @@ class ProductExtraInfo extends HTMLElement {
             height="24"
             viewBox="0 0 24 24"
             fill="none"
+            class="transition-transform duration-200"
           >
             <path
-              d="M5.0338 15.5239L11.9998 8.55693L18.9668 15.5239"
+              d="M18.9662 8.47607L12.0002 15.4431L5.0332 8.47607"
               stroke="#111111"
               stroke-width="1.5"
             />
@@ -122,7 +126,7 @@ class ProductExtraInfo extends HTMLElement {
         </button>
 
         <!-- 상품 추가 정보 토글 시 -->
-        <div id="inforPanel">
+        <div id="infoPanel" hidden class="pb-7.5">
           <p class="text-base">상품정보제공시</p>
           <ul
             class="flex flex-col gap-3 list-disc list-outside pl-7 my-3 text-xs"
@@ -162,6 +166,27 @@ class ProductExtraInfo extends HTMLElement {
       </section>
     </div>
   `;
+  }
+
+  // 모든 button[aria-controls] 버튼에 클릭 이벤트 추가
+  addToggleEvent() {
+    const buttons = this.querySelectorAll('button[aria-controls]');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panelId = btn.getAttribute('aria-controls')!;
+        const panel = this.querySelector<HTMLElement>(`#${panelId}`)!;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        const svg = btn.querySelector('svg')!;
+
+        // 토글 동작
+        btn.setAttribute('aria-expanded', (!expanded).toString());
+        panel.hidden = expanded;
+
+        // 토글 동작 시 아이콘 회전
+        svg.style.transform = expanded ? 'rotate(0deg)' : 'rotate(-180deg)';
+      });
+    });
   }
 }
 
