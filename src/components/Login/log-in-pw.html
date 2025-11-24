@@ -30,21 +30,34 @@
           />
         </svg>
       </a>
-
       <h1 class="text-[28px] font-normal leading-8 m-0 mb-2.5">
         비밀번호를 입력하세요.
       </h1>
-      <p class="text-[16px] font-normal leading-6 mb-[26px]">test@naver.com</p>
+      <!-- 이메일 표시 -->
+      <p
+        id="email"
+        class="text-[16px] font-normal leading-6 mb-[26px] mt-5"
+      ></p>
+      <!-- 비밀번호 입력 -->
       <div class="flex justify-center items-center mb-5">
         <input
           type="password"
           placeholder="비밀번호"
-          class="w-[272px] h-14 shrink-0 rounded-xl border border-gray-500 hover:bg-gray-100 text-[16px] flex pl-3 pr-0"
+          class="w-[288px] h-14 shrink-0 rounded-xl border border-gray-500 hover:bg-gray-100 text-[16px] flex pl-3 pr-0"
         />
+        <div></div>
         <button
-          class="absolute hover:bg-gray-200 ml-55 p-1 rounded-2xl cursor-pointer"
+          id="pwToggleBtn"
+          class="absolute hover:bg-gray-200 ml-58 p-1 rounded-2xl cursor-pointer"
         >
+          <!-- 비밀번호 보임 아이콘 -->
+          <img id="eyeOpen" class="hidden" width="23" height="23" />
+
+          <!-- 비밀번호 가려짐 아이콘 -->
           <svg
+            id="eyeClose"
+            xmlns="http://www.w3.org/2000/svg"
+            class="block"
             width="21"
             height="21"
             viewBox="0 0 21 21"
@@ -72,6 +85,7 @@
           >
         </button>
         <button
+          id="loginBtn"
           class="text-[16px] font-medium leading-7 bg-black hover:bg-gray-700 text-white rounded-4xl py-3"
         >
           <a href="/" class="py-4 px-[30px]">로그인</a>
@@ -79,16 +93,77 @@
       </div>
     </div>
     <script>
-      const btnElem = document.querySelector('button');
-      const inputElem = document.querySelector('input');
-      btnElem.addEventListener('click', function (event) {
-        if (inputElem.type === 'password') {
-          inputElem.type = 'text';
+      // ===== 비밀번호 보임/숨김 토글 기능 =====
+      const pwBtn = document.getElementById('pwToggleBtn');
+      const pwInput = document.querySelector('#loginPw input');
+      const eyeOpen = document.getElementById('eyeOpen');
+      const eyeClose = document.getElementById('eyeClose');
+
+      // eyeOpen 아이콘 src 추가
+      eyeOpen.src = '/src/assets/img/eye-open-icon.png';
+
+      // ===== 비밀번호 상태 변경 토글 기능 =====
+      pwBtn.addEventListener('click', () => {
+        const isPassword = pwInput.type === 'password';
+
+        // 타입 변경
+        pwInput.type = isPassword ? 'text' : 'password';
+
+        // 아이콘 변경
+        if (isPassword) {
+          eyeOpen.classList.remove('hidden');
+          eyeClose.classList.add('hidden');
         } else {
-          inputElem.type = 'password';
+          eyeOpen.classList.add('hidden');
+          eyeClose.classList.remove('hidden');
+        }
+      });
+
+      // ===== 임시 유저 데이터 =====
+      const tempUsers = [
+        { email: 'spoon4@gmail.com', password: '1234qweR' },
+        { email: 'test@naver.com', password: 'aA123456' },
+      ];
+
+      // ===== 이메일 표시 =====
+      const params = new URLSearchParams(location.search);
+      const email = params.get('email');
+      const emailTxt = document.getElementById('email');
+      if (email && emailTxt) emailTxt.textContent = email;
+
+      // ===== 로그인 버튼 클릭 시 =====
+      const loginBtn = document.getElementById('loginBtn');
+
+      loginBtn.addEventListener('click', e => {
+        e.preventDefault(); // 기본 동작 막기
+
+        const user = tempUsers.find(u => {
+          return u.email === email;
+        });
+
+        if (!user) {
+          alert('존재하지 않는 이메일입니다.');
+          location.href = '/login-email.html';
+          return;
+        }
+
+        const inputPw = pwInput.value.trim();
+
+        validatePassword(inputPw);
+        // ===== 비밀번호 검증 함수 =====
+        function validatePassword(pwInput) {
+          if (pwInput === user.password) {
+            alert('로그인 성공!');
+            location.href = '/';
+          } else if (pwInput === '') {
+            alert('비밀번호를 입력해주세요.');
+          } else {
+            alert('비밀번호가 틀렸습니다.');
+          }
         }
       });
     </script>
     <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/pages/user/login.ts"></script>
   </body>
 </html>

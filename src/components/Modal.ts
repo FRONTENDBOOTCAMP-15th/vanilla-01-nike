@@ -38,7 +38,7 @@ class HeaderComponent extends HTMLElement {
                 <button
                   class="text-[16px] rounded-4xl py-1.5 my-[19px] mr-4 bg-black hover:bg-gray-600"
                 >
-                  <a href="/src/components/Login/authority.html" class="text-white px-3.5 py-1.5"
+                  <a href="/src/components/Login/log-in.html" class="text-white px-3.5 py-1.5"
                     >가입하기</a
                   >
                 </button>

@@ -4,7 +4,7 @@
 
 // 회원 기본 정보
 export interface User {
-  _id: number;
+  _id?: number;
   email: string;
   name: string;
   image?: string;

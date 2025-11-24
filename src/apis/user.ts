@@ -42,3 +42,17 @@ export async function loginUserApi(
     handleAxiosError(err);
   }
 }
+
+export async function EmailUserApi(
+  email: string,
+): Promise<DetailRes<UserDetail> | undefined> {
+  try {
+    const res = await axiosInstance.post<DetailRes<UserDetail>>(
+      '/users/login',
+      { email },
+    );
+    return res.data;
+  } catch (err) {
+    handleAxiosError(err);
+  }
+}

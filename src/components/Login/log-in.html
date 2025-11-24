@@ -11,7 +11,6 @@
       }
     </style>
   </head>
-  <!-- <fsc-login></fsc-login> -->
   <body class="w-[360px] h-[720px] m-0 p-0">
     <div id="loginEmail" class="py-5 px-9">
       <a href="/index.html">
@@ -36,9 +35,11 @@
       </h1>
       <input
         type="email"
+        id="emailInput"
         placeholder="이메일"
-        class="w-[288px] h-14 shrink-0 rounded-xl border border-gray-500 hover:bg-gray-100 text-[16px] flex pl-3 mb-[46px]"
+        class="w-[288px] h-14 shrink-0 rounded-xl border border-gray-500 hover:bg-gray-100 text-[16px] flex mb-5 pl-3"
       />
+      <p id="warning" class="text-red-500 text-sm mb-[26px] w-[200px]"></p>
       <p class="text-gray-500 text-[16px] font-normal leading-6 mb-10">
         계속 진행하면 나이키의
         <span class="underline"><a href="">개인정보 처리방침</a></span> 및
@@ -46,14 +47,61 @@
         >에 동의하게 됩니다.
       </p>
       <button
-        class="text-[16px] font-medium leading-7 bg-black hover:bg-gray-700 text-white rounded-4xl py-3"
+        id="nextBtn"
+        class="text-[16px] font-medium leading-7 disabled:bg-gray-300 enabled: enabled:hover:bg-black/70 bg-black text-white rounded-4xl py-3 justify-center"
       >
-        <a href="/src/components/Login/log-in-pw.html" class="py-4 px-[30px]"
+        <a
+          id="nextLink"
+          href="/src/components/Login/log-in-pw.html"
+          class="py-4 px-[30px] pointer-events-none"
           >계속</a
         >
       </button>
     </div>
   </body>
   <script type="module" src="/src/main.ts"></script>
-  <!-- <script type="module" src="/src/pages/user/login.ts"></script> -->
+  <script type="module">
+    // 테스트용 회원 이메일 목록
+    const members = ['spoon4@gmail.com', 'test@naver.com'];
+
+    export const emailInput = document.getElementById('emailInput');
+    const nextBtn = document.getElementById('nextBtn');
+    const warning = document.getElementById('warning');
+
+    // 이메일 형식 정규표현식
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    nextBtn.addEventListener('click', e => {
+      e.preventDefault(); // 버튼 기본 이동 막기
+
+      const email = emailInput.value.trim().toLowerCase();
+      warning.textContent = '';
+
+      // 1. 이메일 비었으면
+      if (email === '') {
+        warning.textContent = '이메일을 입력해주세요.';
+        return;
+      }
+
+      // 2. 이메일 형식 틀리면
+      if (!emailRegex.test(email)) {
+        warning.textContent =
+          '올바른 이메일 형식으로 적어주세요. ex) mailname@gamil.com';
+        return;
+      }
+
+      // 3. 회원 여부 판단
+      const exist = members.includes(email);
+
+      if (exist) {
+        // 회원 → 비밀번호 입력 페이지
+        location.href = `/src/components/Login/log-in-pw.html?email=${email}`;
+      } else {
+        // 비회원 → 권한 동의 페이지
+        alert('회원이 아닙니다. 회원가입 페이지로 이동합니다.');
+        location.href = `/src/components/Login/authority.html?email=${email}`;
+      }
+    });
+  </script>
+  <!-- <script type="module" src="/src/pages/user/login.ts"></> -->
 </html>

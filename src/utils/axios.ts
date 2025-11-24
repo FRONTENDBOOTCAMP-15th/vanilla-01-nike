@@ -14,7 +14,6 @@ const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 export function getAxios(): AxiosInstance {
   const instance = axios.create({
     baseURL: API_SERVER, // 기본 URL
-    timeout: 1000 * 5,
     headers: {
       'Content-Type': 'application/json', // 요청 바디의 데이터 타입
       Accept: 'application/json', // 응답 바디의 데이터 타입

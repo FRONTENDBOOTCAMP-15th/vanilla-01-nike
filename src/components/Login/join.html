@@ -10,6 +10,22 @@
       body {
         font-family: Pretendard;
       }
+
+      input[type='date']::-webkit-calendar-picker-indicator {
+        opacity: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        cursor: pointer;
+      }
+
+      input[type='date'] {
+        position: relative;
+        z-index: 1;
+      }
     </style>
   </head>
   <body class="w-[360px] h-[720px] m-0 p-0">
@@ -35,10 +51,15 @@
         이제 나이키 멤버가 되어<br />
         볼까요?
       </h1>
+      <!-- 이메일 표시 -->
+      <p
+        id="email"
+        class="text-[16px] font-normal leading-6 mb-[26px] mt-5"
+      ></p>
       <form id="signup-form" action="#" method="post">
         <fieldset>
-          <div class="flex gap-3 mb-5">
-            <div class="flex flex-col gap-3">
+          <div class="flex gap-3 mb-3">
+            <div class="flex flex-col">
               <input
                 type="text"
                 placeholder="이름*"
@@ -46,15 +67,44 @@
                 name="name"
                 class="w-[138px] h-14 shrink-0 rounded-xl border border-gray-500 text-[16px] flex pl-3"
               />
-              <div></div>
+              <div class="text-red-500 mt-1.5 text-[12px] ml-2"></div>
             </div>
-            <input
-              type="text"
-              placeholder="성"
-              class="w-[138px] h-14 shrink-0 rounded-xl border border-gray-500 text-[16px] flex pl-3"
-            />
+            <div class="flex flex-col">
+              <input
+                type="text"
+                placeholder="성*"
+                name="firstName"
+                class="w-[138px] h-14 shrink-0 rounded-xl border border-gray-500 text-[16px] flex pl-3"
+              />
+              <div class="text-red-500 mt-1.5 text-[12px] ml-2"></div>
+            </div>
           </div>
-          <div class="flex flex-col gap-5">
+          <div class="flex flex-col">
+            <button
+              id="pwToggleBtn"
+              type="button"
+              class="absolute hover:bg-gray-200 ml-62 mt-3.5 p-1 rounded-2xl cursor-pointer"
+            >
+              <!-- 비밀번호 보임 아이콘 -->
+              <img id="eyeOpen" class="hidden" width="23" height="23" />
+
+              <!-- 비밀번호 가려짐 아이콘 -->
+              <svg
+                id="eyeClose"
+                xmlns="http://www.w3.org/2000/svg"
+                class="block"
+                width="21"
+                height="21"
+                viewBox="0 0 21 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.94411 4.08411C9.29488 4.03035 9.64925 4.0036 10.0041 4.00411C13.1841 4.00411 16.1741 6.29411 17.9141 10.0041C17.648 10.5687 17.3474 11.1164 17.0141 11.6441C16.9083 11.8079 16.8527 11.9991 16.8541 12.1941C16.8587 12.6426 17.1613 13.0332 17.5945 13.1496C18.0276 13.2661 18.4853 13.0799 18.7141 12.6941C19.18 11.962 19.5847 11.1928 19.9241 10.3941C20.0325 10.1419 20.0325 9.85629 19.9241 9.60411C17.9041 4.91411 14.1041 2.00402 10.0041 2.00402C9.53478 2.00175 9.0662 2.04191 8.60411 2.12411C8.24685 2.18485 7.94912 2.43157 7.82309 2.77134C7.69705 3.11111 7.76186 3.49231 7.99309 3.77134C8.22432 4.05037 8.58685 4.18485 8.94411 4.12411V4.08411ZM1.71411 0.294115C1.46046 0.0404559 1.09074 -0.058609 0.744236 0.0342365C0.397732 0.127082 0.127082 0.397732 0.0342365 0.744236C-0.058609 1.09074 0.0404559 1.46046 0.294115 1.71411L3.39411 4.80411C1.97969 6.16564 0.853971 7.7981 0.0841146 9.60411C-0.0271986 9.85917 -0.0271986 10.1491 0.0841146 10.4041C2.10411 15.0941 5.90411 18.0041 10.0041 18.0041C11.8012 17.9917 13.5559 17.4566 15.0541 16.4641L18.2941 19.7141C18.4819 19.9034 18.7375 20.0099 19.0041 20.0099C19.2708 20.0099 19.5263 19.9034 19.7141 19.7141C19.9034 19.5263 20.0099 19.2708 20.0099 19.0041C20.0099 18.7375 19.9034 18.4819 19.7141 18.2941L1.71411 0.294115ZM8.07411 9.48411L10.5241 11.9341C10.3551 11.9826 10.1799 12.0062 10.0041 12.0041C8.89954 12.0041 8.00411 11.1087 8.00411 10.0041C8.00207 9.8283 8.02565 9.65313 8.07411 9.48411ZM10.0041 16.0041C6.82411 16.0041 3.83411 13.7141 2.10411 10.0041C2.7502 8.57786 3.66719 7.29069 4.80411 6.21411L6.57411 8.00411C5.72013 9.56273 5.99695 11.4979 7.25364 12.7546C8.51034 14.0113 10.4455 14.2881 12.0041 13.4341L13.5941 15.0041C12.5052 15.645 11.2675 15.9897 10.0041 16.0041Z"
+                  fill="#111111"
+                />
+              </svg>
+            </button>
             <input
               type="password"
               placeholder="비밀번호*"
@@ -63,54 +113,113 @@
               name="password"
               class="w-[288px] h-14 shrink-0 rounded-xl border border-gray-500 text-[16px] flex pl-3"
             />
-            <div class="text-orange-600"></div>
-            <div name="notice" class="flex flex-col gap-2 mb-5">
-              <p class="text-gray-400 text-[12px] font-normal leading-[18px]">
-                X 최소 8자
-              </p>
-              <p class="text-green-600 text-[12px] font-normal leading-[18px]">
-                V 최소 8자
-              </p>
-              <p class="text-gray-400 text-[12px] font-normal leading-[18px]">
-                X 알파벳 대문자 및 소문자 조합, 최소 1개 이상의 숫자
-              </p>
-              <p class="text-green-600 text-[12px] font-normal leading-[18px]">
-                V 알파벳 대문자 및 소문자 조합, 최소 1개 이상의 숫자
-              </p>
+            <div class="text-red-500 mt-1.5 text-[12px] ml-2"></div>
+            <div class="pw-wrap ml-2 mt-2 text-[12px]">
+              <div id="loginTxtFirst" class="pw-check">
+                <p class="text-gray-400">X 최소 8자 이상</p>
+              </div>
+
+              <div id="loginTxtSecond" class="pw-check">
+                <p class="text-gray-400">
+                  X 알파벳 대문자 및 소문자 조합, 최소 1개 이상의 숫자
+                </p>
+              </div>
             </div>
+
+            <!-- 생년월일 -->
+            <div class="flex justify-center items-center relative mt-3">
+              <!-- 커스텀 아이콘-달력 -->
+              <button
+                id="calendar-icon"
+                type="button"
+                class="absolute hover:bg-gray-200 ml-58 p-1 rounded-2xl cursor-pointer z-3"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 20.25H6C5.40326 20.25 4.83097 20.0129 4.40901 19.591C3.98705 19.169 3.75 18.5967 3.75 18V7.5C3.75 6.90326 3.98705 6.33097 4.40901 5.90901C4.83097 5.48705 5.40326 5.25 6 5.25H18C18.5967 5.25 19.169 5.48705 19.591 5.90901C20.0129 6.33097 20.25 6.90326 20.25 7.5V18C20.25 18.5967 20.0129 19.169 19.591 19.591C19.169 20.0129 18.5967 20.25 18 20.25Z"
+                    stroke="#111111"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M20.25 9.75H3.75M8.25 3V7.5M15.75 3V7.5"
+                    stroke="#111111"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </button>
+              <input
+                id="birth"
+                type="date"
+                name="birthday"
+                data-plaaceholder="생년월일"
+                class="w-full h-[55px] border border-gray-500 text-gray-500 rounded-xl py-3 pl-4 appearance-none [-webkit-appearance:none] [-moz-appearance:none] bg-white focus:outline-none"
+              />
+            </div>
+            <!-- 약관 동의 -->
+            <div class="flex gap-3 items-center mb-12 mt-2">
+              <input
+                type="checkbox"
+                class="w-6 h-6 shrink-0 rounded-2xl border-gray-400 text-[16px] flex pl-4"
+              />
+              <span class="w-[254px] text-[16px] font-normal leading-6 mt-4">
+                나이키의
+                <span class="underline font-bold">개인정보 처리방침</span> 및
+                <span class="underline font-bold">이용약관</span>에 동의합니다.
+              </span>
+            </div>
+            <button
+              id="userCreateBtn"
+              type="submit"
+              class="w-[288px] text-[16px] font-medium leading-7 bg-black text-white rounded-4xl py-3 px-[30px] cursor-pointer"
+            >
+              계정 만들기
+            </button>
           </div>
-          <div name="dateBox" class="flex justify-between items-center">
-            <input
-              type="date"
-              data-placeholder="생년월일"
-              name="birthday"
-              alt="/src/assets/svg/Icon24px.svg"
-              class="w-[288px] h-14 shrink-0 rounded-xl border border-gray-500 text-[16px] flex pl-3 mb-5"
-            />
-            <img src="/src/assets/svg/Icon24px.svg" class="relative pr-4" />
-          </div>
-          <div class="flex gap-3 items-center mb-12">
-            <input
-              type="checkbox"
-              class="w-6 h-6 shrink-0 rounded-2xl border-gray-400 text-[16px] flex pl-4"
-            />
-            <span class="w-[254px] text-[16px] font-normal leading-6 mt-0.5">
-              나이키의
-              <span class="underline font-bold">개인정보 처리방침</span> 및
-              <span class="underline font-bold">이용약관</span>에 동의합니다.
-            </span>
-          </div>
-          <button
-            type="submit"
-            class="w-[288px] text-[16px] font-medium leading-7 bg-black text-white rounded-4xl py-3 px-[30px] cursor-pointer"
-          >
-            계정 만들기
-          </button>
         </fieldset>
       </form>
     </div>
     <script type="module" src="/src/main.ts"></script>
     <script type="module" src="/src/pages/user/signup.ts"></script>
-    <script></script>
+    <script>
+      //이메일 가져오기
+      const email = new URLSearchParams(location.search).get('email');
+      document.getElementById('email').textContent = email || '';
+
+      // ===== 생년월일 달력 아이콘 클릭 시 달력 표시 =====
+      document
+        .querySelector('#calendar-icon')
+        ?.addEventListener('click', () => {
+          document.querySelector('#birth')?.showPicker();
+        });
+
+      // ===== 비밀번호 보임/숨김 토글 기능 =====
+      const pwBtn = document.getElementById('pwToggleBtn');
+      const pwInput = document.getElementById('pw');
+      const eyeOpen = document.getElementById('eyeOpen');
+      const eyeClose = document.getElementById('eyeClose');
+      // eyeOpen 아이콘 src 추가
+      eyeOpen.src = '/src/assets/img/eye-open-icon.png';
+
+      // ===== 비밀번호 상태 변경 토글 기능 =====
+      pwBtn.addEventListener('click', () => {
+        const isPassword = pwInput.type === 'password';
+        // 타입 변경
+        pwInput.type = isPassword ? 'text' : 'password';
+        // 아이콘 변경
+        if (isPassword) {
+          eyeOpen.classList.remove('hidden');
+          eyeClose.classList.add('hidden');
+        } else {
+          eyeOpen.classList.add('hidden');
+          eyeClose.classList.remove('hidden');
+        }
+      });
+    </script>
   </body>
 </html>

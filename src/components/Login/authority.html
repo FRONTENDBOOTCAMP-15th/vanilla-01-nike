@@ -113,6 +113,10 @@
       </div>
     </div>
     <script>
+      //이메이 락ㅄ 받아오기
+      const email = new URLSearchParams(location.search).get('email');
+      location.href = `/src/components/Login/join.html?email=${email}`;
+
       // parent checkbox를 선택하면 세 checkbox의 상태가 checked로
       function is_checked() {
         const parent = document.getElementById('my_checkbox');
@@ -146,7 +150,9 @@
         const children = document.getElementsByClassName('cbox');
 
         for (let elem of children) {
-          elem.addEventListener('change', syncParentCheckbox);
+          elem.addEventListener('change', () => {
+            (syncParentCheckbox(), updateNextButton());
+          });
         }
       });
 
