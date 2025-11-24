@@ -156,7 +156,10 @@ class RecommendedProducts extends HTMLElement {
     `;
 
       li.addEventListener('click', () => {
-        window.location.href = `/src/pages/detail?_id=${p._id}`;
+        const detailPath = '/src/pages/detail.html';
+        window.location.href = `${detailPath}?_id=${encodeURIComponent(
+          String(p._id),
+        )}`;
       });
 
       list.appendChild(li);

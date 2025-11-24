@@ -260,7 +260,7 @@ class ItemList extends HTMLElement {
     const colorCount = color ? color.split('/').length : 1;
 
     return createProductCard({
-      id: product.id,
+      id: product.id ?? product._id,
       name: product.name,
       price: product.price,
       originalPrice: product.extra?.primeCost,
