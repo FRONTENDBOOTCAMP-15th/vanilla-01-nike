@@ -1,4 +1,4 @@
-import { getAxios } from '../utils/Axois';
+import { getAxios } from '../utils/axios';
 
 // 상품 목록을 가져오기 위한 API
 export async function getProducts() {
