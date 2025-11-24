@@ -32,10 +32,9 @@ export const createProductCard = ({
       ? `${new Intl.NumberFormat('ko-KR').format(Number(originalPrice))} 원`
       : null;
 
+  const detailPath = '/src/pages/detail.html';
   const detailUrl =
-    id !== undefined
-      ? `../../src/pages/detail?id=${String(id)}`
-      : `../../src/pages/detail`;
+    id !== undefined ? `${detailPath}?_id=${String(id)}` : detailPath;
 
   return `
     <li>

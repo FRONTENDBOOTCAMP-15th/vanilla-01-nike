@@ -1,6 +1,7 @@
 import { getProducts } from '../../apis/itemListApi';
 
 export type Product = {
+  _id?: string | number;
   id?: string | number;
   name: string;
   price: number;
@@ -21,8 +22,19 @@ export type SortOption = 'recommended' | 'new' | 'low' | 'high';
 // API에서 데이터를 받아와 항상 동일한 상품 배열 형태로 맞춤.
 export const fetchProducts = async (): Promise<Product[]> => {
   const data = await getProducts();
-  if (Array.isArray(data)) return data;
-  if (Array.isArray(data?.item)) return data.item;
+  const normalize = (list: Product[]) =>
+    list.map(product => ({
+      ...product,
+      id: product.id ?? product._id,
+    }));
+
+  if (Array.isArray(data)) {
+    return normalize(data as Product[]);
+  }
+  if (Array.isArray(data?.item)) {
+    return normalize(data.item as Product[]);
+  }
+
   return [];
 };
 
