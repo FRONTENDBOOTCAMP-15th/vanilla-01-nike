@@ -113,7 +113,6 @@ interface CartTotal {
   cartCount: number;
   cartPrice: number;
 }
-
 // 초기 상태
 const cartTotal: CartTotal = {
   cartCount: 1,
@@ -169,7 +168,7 @@ const updateDisplay = (): void => {
   // 상품 금액 업데이트 (주문 내역)
   if (orderItemPrice) {
     console.log('상품 금액 업데이트');
-    orderItemPrice.textContent = `${cartTotal.cartPrice.toLocaleString('ko-KR')}원`; // 상품 하나의 가격을 업데이트
+    orderItemPrice.textContent = `${totalProductPrice.toLocaleString('ko-KR')}원`;
   }
 
   // 총 결제 금액 업데이트
@@ -223,21 +222,45 @@ if (icoHeart && heartIcon) {
 // });
 
 // 삭제 아이콘 (아이템 삭제하기)------------------------------------------------
-const icoTrash = document.querySelector('.deleteButton');
-const cartList = document.querySelector('.cartList') || null; // cartList가 null일 경우 null로 설정
-const cartEmpty = document.querySelector('.cartEmpty') || null; // cartEmpty가 null일 경우 null로 설정
+function updateCartStatus() {
+  const cartList = document.querySelector('.cartList');
+  const cartEmpty = document.querySelector('.cartEmpty');
+  const freeShippingMessage = document.querySelector('.deliveryInfo'); // 무료배송 메시지
 
-icoTrash?.addEventListener('click', () => {
-  // 삭제 아이콘 클릭 시 동작할 코드 작성
-  console.log('아이템 삭제');
+  if (cartList && cartEmpty && freeShippingMessage) {
+    const cartItems = document.querySelectorAll('.cartList .cartDetail'); // 아이템 리스트
 
-  if (cartList && cartEmpty) {
-    // 장바구니 상품 숨기기
-    cartList.classList.add('hidden');
-
-    // "장바구니에 상품이 없는 경우" 메시지 표시
-    cartEmpty.classList.remove('hidden');
+    // 아이템이 하나도 없으면
+    if (cartItems.length === 0) {
+      cartList.classList.add('hidden'); // cartList 숨기기
+      freeShippingMessage.classList.add('hidden'); // 무료배송 메시지도 숨기기
+      cartEmpty.classList.remove('hidden'); // cartEmpty 보이기
+    } else {
+      cartList.classList.remove('hidden'); // cartList 보이기
+      freeShippingMessage.classList.remove('hidden'); // 무료배송 메시지 보이기
+      cartEmpty.classList.add('hidden'); // cartEmpty 숨기기
+    }
   } else {
     console.error('필수 요소가 누락되었습니다.');
   }
+}
+
+// 삭제 버튼 클릭 시 해당 아이템 삭제 후 상태 업데이트
+document.addEventListener('click', event => {
+  const target = event.target as HTMLElement; // event.target을 HTMLElement로 타입 단언
+
+  // 삭제 아이콘 클릭 시
+  if (target && target.matches('.deleteButton img')) {
+    const itemToDelete = target.closest('.cartDetail'); // 삭제할 아이템 찾기
+    if (itemToDelete) {
+      // 해당 아이템을 삭제
+      itemToDelete.remove();
+
+      // 상태 업데이트
+      updateCartStatus(); // 장바구니 상태 확인 후, 보여줄 요소를 업데이트
+    }
+  }
 });
+
+// 페이지 로드 후 초기 상태 확인
+document.addEventListener('DOMContentLoaded', updateCartStatus);
