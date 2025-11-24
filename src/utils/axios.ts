@@ -1,7 +1,12 @@
 import axios, { AxiosError, type AxiosInstance } from 'axios';
 
-const API_SERVER = import.meta.env.VITE_API_SERVER_URL;
-const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
+const FALLBACK_SERVER = 'https://fesp-api.koyeb.app/market';
+const FALLBACK_CLIENT_ID = 'febc15-vanilla01-ecad';
+
+const API_SERVER =
+  import.meta.env.VITE_API_SERVER_URL?.trim() || FALLBACK_SERVER;
+const CLIENT_ID =
+  import.meta.env.VITE_CLIENT_ID?.trim() || FALLBACK_CLIENT_ID;
 
 /**
  * Axios 인스턴스를 생성하고 인터셉터를 설정하는 함수
