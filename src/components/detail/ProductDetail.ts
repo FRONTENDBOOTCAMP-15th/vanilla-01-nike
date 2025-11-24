@@ -30,7 +30,7 @@ class ProductDetail extends HTMLElement {
         <li id="p-color"></li>
         <li id="p-styleNo"></li>
       </ul>
-      <a href="/" class="underline decoration-2 underline-offset-8"
+      <a href="#" class="underline decoration-2 underline-offset-8"
         >상품 상세 정보 보기</a
       >
     </section>
