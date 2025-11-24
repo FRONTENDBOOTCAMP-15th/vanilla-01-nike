@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>약관 보기</title>
+    <style>
+      body {
+        font-family: Pretendard, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .loading {
+        font-size: 18px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="loading">약관 페이지로 이동 중…</p>
+
+    <script>
+      // URL 파라미터 읽기
+      const params = new URLSearchParams(window.location.search);
+      const type = params.get('type');
+
+      // 약관 타입별 이동할 URL
+      const agreementLinks = {
+        //개인정보 처리방침 보기
+        privacy:
+          'https://agreementservice.svs.nike.com/rest/agreement?agreementType=privacyPolicy&country=KR&language=ko&requestType=redirect&uxId=4fd2d5e7db76e0f85a6bb56721bd51df',
+        //나이키 이용약관 보기
+        terms:
+          'https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfUse&country=KR&language=ko&requestType=redirect&uxId=4fd2d5e7db76e0f85a6bb56721bd51df',
+        //개인정보 제3자 제공 동의 보기
+        thirdperson:
+          'https://agreementservice.svs.nike.com/rest/agreement?agreementType=3rdPartyList&uxId=4fd2d5e7db76e0f85a6bb56721bd51df&country=KR&language=ko&requestType=redirect',
+        //개인정보 수집 및 이용 동의 보기
+        collection:
+          'https://agreementservice.svs.nike.com/rest/agreement?agreementType=piCollectionList&uxId=4fd2d5e7db76e0f85a6bb56721bd51df&country=KR&language=ko&requestType=redirect',
+      };
+
+      // 해당 타입이 존재하면 이동
+      if (agreementLinks[type]) {
+        window.location.href = agreementLinks[type];
+      } else {
+        document.body.innerHTML = '<p>잘못된 약관 타입입니다.</p>';
+      }
+    </script>
+  </body>
+</html>
